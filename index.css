@@ -1,0 +1,26 @@
+#edit-box {
+    min-height: 400px;
+    background-color: #5ca0bf;
+
+}
+
+#preview {
+    max-width: 600px;
+    max-height: 400px;
+}
+
+#dragBox {
+    position: absolute;
+    z-index: 9;
+    cursor: move;
+    top: 0px;
+    left: 0px;
+    /*background-color: #f1f1f1;*/
+    /*border: 1px solid #d3d3d3;*/
+    text-align: center;
+    background-color: #34bf33;
+}
+
+#preview {
+    position: absolute;
+}
