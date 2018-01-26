@@ -139,19 +139,19 @@ $(function () {
     });
     blueBtn.click(function () {
         console.log("bluebtn fired");
-        tshirtBlock.css('background-color', 'blue');
+        tshirtBlock.css('background-color', '#007bff');
     });
     redBtn.click(function () {
-        tshirtBlock.css('background-color', 'red');
+        tshirtBlock.css('background-color', '#bf2525');
     });
     greenBtn.click(function () {
-        tshirtBlock.css('background-color', 'green');
+        tshirtBlock.css('background-color', '#37cb36');
     });
     blackBtn.click(function () {
-        tshirtBlock.css('background-color', 'black');
+        tshirtBlock.css('background-color', '#110e0e');
     });
     yellowBtn.click(function () {
-        tshirtBlock.css('background-color', 'yellow');
+        tshirtBlock.css('background-color', '#e1da1e');
     });
     greyBtn.click(function () {
         tshirtBlock.css('background-color', 'grey');

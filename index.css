@@ -32,9 +32,22 @@
 }
 
 #white-btn {
-    background-color: #f5f5eb
+    background-color: #f5f5eb;
+}
+
+#white-btn:hover {
+    background-color: #e4e4da;
 }
 
 #green-btn {
     background-color: #34bf33
 }
+
+#green-btn:hover {
+    background-color: #34a233
+}
+/*trial*/
+#green-btn:hover {
+    background-color: #e1da1e
+}
+
