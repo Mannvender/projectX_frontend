@@ -24,3 +24,7 @@
 #preview {
     position: absolute;
 }
+
+.hi-ground {
+    /*z-index: 12;*/
+}
