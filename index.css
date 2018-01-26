@@ -1,12 +1,13 @@
 #edit-box {
+    top: 180px;
+    left: 165px;
     overflow: hidden;
     min-height: 400px;
-    background-color: #5ca0bf;
 
 }
 
 #preview {
-    max-width: 600px;
+    max-width: 350px;
     max-height: 400px;
 }
 
@@ -18,9 +19,13 @@
     left: 0px;
     /*background-color: #f1f1f1;*/
     /*border: 1px solid #d3d3d3;*/
-    text-align: center;
-    background-color: #34bf33;
+    /*background-color: #34bf33;*/
 }
 
-.hi-ground {
+#tshirt-block {
+    min-height: 600px;
+    min-width: 630px;
+    background-color: #4331bf;
+    background-image: url("./img/tshirt_front.jpg");
+    background-repeat: no-repeat;
 }

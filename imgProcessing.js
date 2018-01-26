@@ -108,5 +108,22 @@ $(function () {
         document.onmouseup = null;
         document.onmousemove = null;
     }
-})
+});
+
+// function for loading different views of t-shirt
+$(function () {
+    let tshirtBlock = $('#tshirt-block');
+    let frontViewBtn = $('#frontViewBtn');
+    let backViewBtn = $('#backViewBtn');
+
+    frontViewBtn.click(function () {
+        tshirtBlock.css('background-image', 'url(./img/tshirt_front.jpg)');
+    })
+
+    backViewBtn.click(function () {
+        tshirtBlock.css('background-image', 'url(./img/tshirt_back.jpg)');
+    })
+
+
+});
 
