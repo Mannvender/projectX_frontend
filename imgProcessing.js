@@ -74,18 +74,22 @@ $(function () {
             }
 
         } else {
+            //getting image width
+            let imgWidth = document.getElementById('preview').offsetWidth;
+            let imgHeight = document.getElementById('preview').offsetHeight;
 
-            if (-1 * parentWidth > newLeft || -1 * parentHeight > newTop) {
+
+            if (-1 * imgWidth > newLeft || -1 * imgHeight > newTop) {
                 // handling left and top limits
-                if (-1 * parentWidth > newLeft && -1 * parentHeight > newTop) {
-                    document.getElementById('dragBox').style.left = -1 * parentWidth + "px";
-                    document.getElementById('dragBox').style.top = -1 * parentHeight + "px";
+                if (-1 * imgWidth > newLeft && -1 * imgHeight > newTop) {
+                    document.getElementById('dragBox').style.left = -1 * imgWidth + "px";
+                    document.getElementById('dragBox').style.top = -1 * imgHeight + "px";
 
                 } else if (parentWidth < newLeft) {
-                    document.getElementById('dragBox').style.left = -1 * parentWidth + "px";
+                    document.getElementById('dragBox').style.left = -1 * imgWidth + "px";
                     document.getElementById('dragBox').style.top = newTop + "px";
                 } else if (parentHeight < newTop) {
-                    document.getElementById('dragBox').style.top = -1 * parentHeight + "px";
+                    document.getElementById('dragBox').style.top = -1 * imgHeight + "px";
                     document.getElementById('dragBox').style.left = newLeft + "px";
                 }
             } else {
