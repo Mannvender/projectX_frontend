@@ -1,4 +1,5 @@
 #edit-box {
+    overflow: hidden;
     min-height: 400px;
     background-color: #5ca0bf;
 
@@ -21,10 +22,5 @@
     background-color: #34bf33;
 }
 
-#preview {
-    position: absolute;
-}
-
 .hi-ground {
-    /*z-index: 12;*/
 }
