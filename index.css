@@ -1,6 +1,6 @@
 #edit-box {
     top: 180px;
-    left: 165px;
+    left: 156px;
     overflow: hidden;
     min-height: 400px;
 
@@ -24,8 +24,17 @@
 
 #tshirt-block {
     min-height: 600px;
-    min-width: 630px;
-    background-color: #4331bf;
+    min-width: 620px;
+    background-position: right top;
+    background-color: #bf1a1a;
     background-image: url("./img/tshirt_front.jpg");
     background-repeat: no-repeat;
+}
+
+#white-btn {
+    background-color: #f5f5eb
+}
+
+#green-btn {
+    background-color: #34bf33
 }

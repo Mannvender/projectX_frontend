@@ -31,11 +31,21 @@
         <div class="row">
             <div class="col hi-ground ">
 
-                <input type='file' id="upload-design" onchange="readURL(this);"/>
-                <button class="btn-primary my-1" id="frontViewBtn">front</button>
-                <button class="btn-primary" id="backViewBtn"> back</button>
+                <input class="mt-2" type='file' id="upload-design" onchange="readURL(this);"/>
+                <button class="btn btn-primary my-1" id="frontViewBtn">front</button>
+                <button class="btn btn-primary" id="backViewBtn"> back</button>
+
+                <div class="container my-2" id="colour-picker">
+                    <button class="btn btn-default" id="white-btn">white</button>
+                    <button class="btn btn-danger" id="red-btn">red</button>
+                    <button class="btn btn-default" id="green-btn">green</button>
+                    <button class="btn btn-secondary" id="grey-btn">grey</button>
+                    <button class="btn btn-primary" id="blue-btn"> blue</button>
+                    <button class="btn btn-dark" id="black-btn">black</button>
+                    <button class="btn btn-warning" id="yellow-btn">yellow</button>
+                </div>
             </div>
-            <div class="col-6" id="tshirt-block">
+            <div class="col-6 p-0" id="tshirt-block">
                 <div class="col-6" id="edit-box">
                     <div id="dragBox">
                         <img class="figure-img" id="preview" src="#" alt="your image"/>
