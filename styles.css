@@ -1,7 +1,16 @@
-#image {
+#design_area {
     width: 500px;
     height: 500px;
     border: 5px solid black;
+    position: relative;
+}
+
+.images {
+    width: 208px;
+    height: 117px;
+    border: 5px solid black;
+    background-size: cover;
+    background-position: center;
     position: absolute;
     top: 100px;
     left: 100px;

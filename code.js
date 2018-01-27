@@ -1,32 +1,42 @@
-let input = document.getElementById("img_input");
-let image = document.getElementById("image");
+let input = document.getElementById('img_input');
+let designArea = document.getElementById('design_area');
 
-input.addEventListener('change', changeImage);
+input.addEventListener('change', addImage);
 
-function changeImage() {
+function addImage() {
     let image = input.files[0];
     let reader = new FileReader();
     reader.readAsDataURL(image);
     reader.onloadend = () => {
-        document.getElementById("image").style.backgroundImage = 'url(' + reader.result + ')';
+        let newImage = document.createElement('div');
+        newImage.className = 'images';
+        newImage.onmousedown = prepareToMoveImage;
+        newImage.onmouseup = stopMovingImage;
+        newImage.style.backgroundImage = 'url(' + reader.result + ')';
+        designArea.appendChild(newImage);
     }
 }
 
-image.addEventListener('mousedown', prepareToMoveImage);
-image.addEventListener('mouseup', () => window.removeEventListener('mousemove', moveImage));
-
 let initialX;
 let initialY;
+let imageToBeMoved;
 
 function prepareToMoveImage(event) {
     initialX = event.pageX - event.target.offsetLeft;
     initialY = event.pageY - event.target.offsetTop;
+    imageToBeMoved = event.target;
+    event.target.style.cursor = 'move';
     window.addEventListener('mousemove', moveImage);
 }
 
-function moveImage(e) {
-    let posX = e.pageX - initialX;
-    let posY = e.pageY - initialY;
-    image.style.left = posX + 'px';
-    image.style.top = posY + 'px';
+function moveImage(event) {
+    let posX = event.pageX - initialX;
+    let posY = event.pageY - initialY;
+    imageToBeMoved.style.left = posX + 'px';
+    imageToBeMoved.style.top = posY + 'px';
+}
+
+function stopMovingImage() {
+    window.removeEventListener('mousemove', moveImage);
+    event.target.style.cursor = 'default';
 }
