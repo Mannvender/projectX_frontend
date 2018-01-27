@@ -15,3 +15,55 @@
     top: 0px;
     left: 0px;
 }
+#edit-box {
+    top: 180px;
+    left: 156px;
+    overflow: hidden;
+    min-height: 400px;
+
+}
+
+#preview {
+    max-width: 350px;
+    max-height: 400px;
+}
+
+#dragBox {
+    position: absolute;
+    z-index: 9;
+    cursor: move;
+    top: 0px;
+    left: 0px;
+    /*background-color: #f1f1f1;*/
+    /*border: 1px solid #d3d3d3;*/
+    /*background-color: #34bf33;*/
+}
+
+#tshirt-block {
+    min-height: 600px;
+    min-width: 620px;
+    background-position: right top;
+    background-color: #bf1a1a;
+    background-image: url("./img/tshirt_front.jpg");
+    background-repeat: no-repeat;
+}
+
+#white-btn {
+    background-color: #f5f5eb;
+}
+
+#white-btn:hover {
+    background-color: #e4e4da;
+}
+
+#green-btn {
+    background-color: #34bf33
+}
+
+#green-btn:hover {
+    background-color: #34a233
+}
+/*trial*/
+#green-btn:hover {
+    background-color: #e1da1e
+}
