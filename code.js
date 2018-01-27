@@ -56,22 +56,24 @@ function alignImageInsideDesignArea() {
     let currentLeft = parseInt(window.getComputedStyle(imageToBeMoved).left);
     let currentTop = parseInt(window.getComputedStyle(imageToBeMoved).top);
 
-    let jqObjectImage = $(imageToBeMoved);
+    let reAdjustedLeft;
+    let reAdjustedTop;
 
     if (currentLeft < minimumLeft) {
-        jqObjectImage.animate({left: minimumLeft});
+        reAdjustedLeft = minimumLeft;
     } else if (currentLeft > maximumLeft) {
-        jqObjectImage.animate({left: maximumLeft});
+        reAdjustedLeft = maximumLeft;
+    } else {
+        reAdjustedLeft = currentLeft;
     }
 
     if (currentTop < minimumTop) {
-        jqObjectImage.animate({top: minimumTop});
+        reAdjustedTop = minimumTop;
     } else if (currentTop > maximumTop) {
-        jqObjectImage.animate({top: maximumTop});
+        reAdjustedTop = maximumTop;
+    } else {
+        reAdjustedTop = currentTop;
     }
-}
 
-// function moveImageLeft(magnitude) {
-//     let workRemaining = magnitude;
-//     imageToBeMoved.style
-// }
+    $(imageToBeMoved).animate({left: reAdjustedLeft, top: reAdjustedTop});
+}
