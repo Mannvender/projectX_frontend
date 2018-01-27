@@ -39,4 +39,39 @@ function moveImage(event) {
 function stopMovingImage() {
     window.removeEventListener('mousemove', moveImage);
     event.target.style.cursor = 'default';
+    alignImageInsideDesignArea();
 }
+
+function alignImageInsideDesignArea() {
+    let widthOfDesignArea = parseInt(window.getComputedStyle(designArea).width);
+    let widthOfImage = parseInt(window.getComputedStyle(imageToBeMoved).width);
+    let heightOfDesignArea = parseInt(window.getComputedStyle(designArea).height);
+    let heightOfImage = parseInt(window.getComputedStyle(imageToBeMoved).height);
+
+    let minimumLeft = 0;
+    let minimumTop = 0;
+    let maximumLeft = widthOfDesignArea - widthOfImage;
+    let maximumTop = heightOfDesignArea - heightOfImage;
+
+    let currentLeft = parseInt(window.getComputedStyle(imageToBeMoved).left);
+    let currentTop = parseInt(window.getComputedStyle(imageToBeMoved).top);
+
+    let jqObjectImage = $(imageToBeMoved);
+
+    if (currentLeft < minimumLeft) {
+        jqObjectImage.animate({left: minimumLeft});
+    } else if (currentLeft > maximumLeft) {
+        jqObjectImage.animate({left: maximumLeft});
+    }
+
+    if (currentTop < minimumTop) {
+        jqObjectImage.animate({top: minimumTop});
+    } else if (currentTop > maximumTop) {
+        jqObjectImage.animate({top: maximumTop});
+    }
+}
+
+// function moveImageLeft(magnitude) {
+//     let workRemaining = magnitude;
+//     imageToBeMoved.style
+// }
