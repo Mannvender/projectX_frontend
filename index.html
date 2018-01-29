@@ -11,44 +11,31 @@
 </head>
 <body>
 
-<div class="container-fluid ">
-    <div class="container ">
-        <div class="row">
-            <div class="col hi-ground ">
-                <input type="file" id="img_input">
-                <button class="btn btn-primary my-1" id="frontViewBtn">front</button>
-                <button class="btn btn-primary" id="backViewBtn"> back</button>
+<div class="container-fluid">
+            <input type="file" id="img_input">
+            <button class="btn btn-primary" id="frontViewBtn">front</button>
+            <button class="btn btn-primary" id="backViewBtn"> back</button>
 
-                <div class="container my-2" id="colour-picker">
-                    <button class="btn m-1" id="white-btn">white</button>
-                    <button class="btn btn-danger m-1" id="red-btn">red</button>
-                    <button class="btn m-1" id="green-btn">green</button>
-                    <button class="btn btn-secondary m-1" id="grey-btn">grey</button>
-                    <button class="btn btn-primary m-1" id="blue-btn"> blue</button>
-                    <button class="btn btn-dark m-1" id="black-btn">black</button>
-                    <button class="btn btn-warning m-1" id="yellow-btn">yellow</button>
-                </div>
+            <div id="colour-picker">
+                <button class="btn m-1" id="white-btn">white</button>
+                <button class="btn btn-danger m-1" id="red-btn">red</button>
+                <button class="btn m-1" id="green-btn">green</button>
+                <button class="btn btn-secondary m-1" id="grey-btn">grey</button>
+                <button class="btn btn-primary m-1" id="blue-btn"> blue</button>
+                <button class="btn btn-dark m-1" id="black-btn">black</button>
+                <button class="btn btn-warning m-1" id="yellow-btn">yellow</button>
             </div>
-            <div class="col-6 p-0" id="tshirt-block">
-
-                <div class="col-6" id="edit-box">
-                    <div id="design_area">
-                    </div>
-                </div>
+        <div id="tshirt_block">
+            <img src="./img/tshirt_front.png">
+            <div id="design_area">
             </div>
-            <div class="col hi-ground"></div>
-
         </div>
-    </div>
 </div>
 
 
-<br>
-<br>
-
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="imgProcessing.js"></script>
+<script src="change_tshirt_color.js"></script>
 <script src="code.js"></script>
 
 </body>
