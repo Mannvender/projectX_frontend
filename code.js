@@ -1,6 +1,12 @@
 let input = document.getElementById('img_input');
 let designArea = document.getElementById('design_area');
 
+let initialX;
+let initialY;
+let imageToBeMoved;
+
+let images;
+
 input.addEventListener('change', addImage);
 
 function addImage() {
@@ -14,12 +20,10 @@ function addImage() {
         newImage.onmouseup = stopMovingImage;
         newImage.style.backgroundImage = 'url(' + reader.result + ')';
         designArea.appendChild(newImage);
+        images = $(".images");
+        images.resizable();
     }
 }
-
-let initialX;
-let initialY;
-let imageToBeMoved;
 
 function prepareToMoveImage(event) {
     initialX = event.pageX - event.target.offsetLeft;
