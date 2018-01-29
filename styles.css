@@ -24,6 +24,7 @@ body {
 
 #tshirt_block {
     position: relative;
+    display: inline-block;
 }
 
 #white-btn {

@@ -12,34 +12,32 @@ let yellowBtn = $('#yellow-btn');
 let greyBtn = $('#grey-btn');
 
 
-frontViewBtn.click(function () {
+frontViewBtn.click(() => {
     tshirtBlock.attr('src', './img/tshirt_front.png');
 });
 
-backViewBtn.click(function () {
+backViewBtn.click(() => {
     tshirtBlock.attr('src', './img/tshirt_back.jpg');
 });
 
-whiteBtn.click(function () {
-    console.log("whitebtn fired");
+whiteBtn.click(() => {
     tshirtBlock.css('background-color', 'white');
 });
-blueBtn.click(function () {
-    console.log("bluebtn fired");
+blueBtn.click(() => {
     tshirtBlock.css('background-color', '#007bff');
 });
-redBtn.click(function () {
+redBtn.click(() => {
     tshirtBlock.css('background-color', '#bf2525');
 });
-greenBtn.click(function () {
+greenBtn.click(() => {
     tshirtBlock.css('background-color', '#37cb36');
 });
-blackBtn.click(function () {
+blackBtn.click(() => {
     tshirtBlock.css('background-color', '#110e0e');
 });
-yellowBtn.click(function () {
+yellowBtn.click(() => {
     tshirtBlock.css('background-color', '#e1da1e');
 });
-greyBtn.click(function () {
+greyBtn.click(() => {
     tshirtBlock.css('background-color', 'grey');
 });
