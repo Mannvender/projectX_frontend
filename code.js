@@ -14,12 +14,12 @@ function addImage() {
     let reader = new FileReader();
     reader.readAsDataURL(image);
     reader.onloadend = () => {
-        let newImage = document.createElement('div');
-        newImage.className = 'images';
-        newImage.onmousedown = prepareToMoveImage;
-        newImage.onmouseup = stopMovingImage;
-        newImage.style.backgroundImage = 'url(' + reader.result + ')';
-        designArea.appendChild(newImage);
+        let newImageDiv = document.createElement('div');
+        newImageDiv.className = 'images';
+        newImageDiv.onmousedown = prepareToMoveImage;
+        newImageDiv.onmouseup = stopMovingImage;
+        newImageDiv.style.backgroundImage = 'url(' + reader.result + ')';
+        designArea.appendChild(newImageDiv);
         images = $(".images");
         images.resizable();
     }
@@ -43,7 +43,7 @@ function moveImage(event) {
 function stopMovingImage() {
     window.removeEventListener('mousemove', moveImage);
     event.target.style.cursor = 'default';
-    alignImageInsideDesignArea();
+    // alignImageInsideDesignArea();
 }
 
 function alignImageInsideDesignArea() {
