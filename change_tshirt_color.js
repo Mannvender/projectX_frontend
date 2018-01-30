@@ -1,5 +1,6 @@
 // function for loading different views of t-shirt and colours
 let tshirtBlock = $('#tshirt_block');
+let transparentImage = $('#transparent_image');
 let frontViewBtn = $('#frontViewBtn');
 let backViewBtn = $('#backViewBtn');
 
@@ -11,13 +12,24 @@ let blackBtn = $('#black-btn');
 let yellowBtn = $('#yellow-btn');
 let greyBtn = $('#grey-btn');
 
+$('#img_input_back').hide();
+$('#design_area_back').hide();
 
 frontViewBtn.click(() => {
-    tshirtBlock.attr('src', './img/tshirt_front.png');
+    transparentImage.attr('src', './img/tshirt_front.png');
+    $('#img_input_back').hide();
+    $('#design_area_back').hide();
+    $('#img_input_front').show();
+    $('#design_area_front').show();
+
 });
 
 backViewBtn.click(() => {
-    tshirtBlock.attr('src', './img/tshirt_back.jpg');
+    transparentImage.attr('src', './img/tshirt_back.png');
+    $('#img_input_front').hide();
+    $('#design_area_front').hide();
+    $('#img_input_back').show();
+    $('#design_area_back').show();
 });
 
 whiteBtn.click(() => {

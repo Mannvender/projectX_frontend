@@ -13,7 +13,8 @@
 <body>
 
 <div class="container-fluid">
-    <input type="file" id="img_input">
+    <input type="file" id="img_input_front">
+    <input type="file" id="img_input_back">
     <button class="btn btn-primary" id="frontViewBtn">front</button>
     <button class="btn btn-primary" id="backViewBtn"> back</button>
 
@@ -31,17 +32,17 @@
         <button class="btn btn-outline-primary m-1" id="hide-overflow-borders">final look</button>
     </div>
     <div id="tshirt_block">
-        <img src="./img/tshirt_front.png">
-        <div id="design_area">
-        </div>
+        <img id="transparent_image" src="./img/tshirt_front.png">
+        <div id="design_area_front"></div>
+        <div id="design_area_back"></div>
     </div>
-</div>
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="change_tshirt_color.js"></script>
-<script src="code.js"></script>
-<script src="finalizeDesign.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="change_tshirt_color.js"></script>
+    <script src="code.js"></script>
+    <script src="finalizeDesign.js"></script>
+</div>
 
 </body>
 </html>

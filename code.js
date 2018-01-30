@@ -1,29 +1,54 @@
-let input = document.getElementById('img_input');
-let designArea = document.getElementById('design_area');
+let input_front = document.getElementById('img_input_front');
+let designArea_front = document.getElementById('design_area_front');
+let input_back = document.getElementById('img_input_back');
+let designArea_back = document.getElementById('design_area_back');
 
 let initialX;
 let initialY;
 let imageToBeMoved;
 
-let images;
+let images_front;
+let images_back;
 
-input.addEventListener('change', addImage);
+input_front.addEventListener('change', addImageFront);
+input_back.addEventListener('change', addImageBack);
 
-function addImage() {
-    let image = input.files[0];
+function addImageFront() {
+    let image = input_front.files[0];
     let reader = new FileReader();
     reader.readAsDataURL(image);
     reader.onloadend = () => {
         let newImageDiv = document.createElement('div');
-        newImageDiv.className = 'images';
+        newImageDiv.className = 'images_front';
         newImageDiv.onmousedown = prepareToMoveImage;
         newImageDiv.onmouseup = stopMovingImage;
         newImageDiv.style.backgroundImage = 'url(' + reader.result + ')';
-        designArea.appendChild(newImageDiv);
-        images = $(".images");
-        images.resizable();
+        designArea_front.appendChild(newImageDiv);
+        images_front = $(".images_front");
+        setResizable(images_front);
     }
 }
+
+function addImageBack() {
+    let image = input_back.files[0];
+    let reader = new FileReader();
+    reader.readAsDataURL(image);
+    reader.onloadend = () => {
+        let newImageDiv = document.createElement('div');
+        newImageDiv.className = 'images_back';
+        newImageDiv.onmousedown = prepareToMoveImage;
+        newImageDiv.onmouseup = stopMovingImage;
+        newImageDiv.style.backgroundImage = 'url(' + reader.result + ')';
+        designArea_back.appendChild(newImageDiv);
+        images_back = $(".images_back");
+        setResizable(images_back);
+    }
+}
+
+function setResizable(jqueryElement) {
+    jqueryElement.resizable();
+}
+
 
 function prepareToMoveImage(event) {
     initialX = event.pageX - event.target.offsetLeft;

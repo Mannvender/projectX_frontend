@@ -2,7 +2,8 @@ body {
     margin-top: 30px;
 }
 
-#design_area {
+/*For more info about css selectors. Visit - https://stackoverflow.com/questions/3338680/is-there-a-css-selector-by-class-prefix*/
+div[id^="design_area_"], div[id*=" design_area_"] {
     width: 220px;
     height: 350px;
     border: 5px solid black;
@@ -11,7 +12,7 @@ body {
     left: 155px;
 }
 
-.images {
+div[class^="images_"], div[class*=" images_"] {
     width: 208px;
     height: 117px;
     border: 2px solid #939187;
