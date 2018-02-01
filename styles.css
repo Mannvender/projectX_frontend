@@ -2,7 +2,7 @@ body {
     margin-top: 30px;
 }
 
-div[id^="design_area_"], div[id*=" design_area_"] {
+.design-area {
     width: 220px;
     height: 350px;
     border: 3px dashed transparent;
@@ -11,18 +11,13 @@ div[id^="design_area_"], div[id*=" design_area_"] {
     left: 152px;
 }
 
-#design_area_front:hover {
-    border: 3px dashed #a211d9;
-}
-
-#design_area_back:hover {
-    border: 3px dashed #a211d9;
+#tshirt_block:hover .design-area {
+    border: 3px dashed #a211d9 !important;
 }
 
 .images {
     width: 208px;
     height: 117px;
-    /*to preserver aspect ratio try - background-size: contain OR cover*/
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
