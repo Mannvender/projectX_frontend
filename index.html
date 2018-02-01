@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery.ui.all.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="floating_icon.css">
+    <!-- animate.min.css for Bootstrap Modals -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <!-- animate.min.css for Bootstrap Modals -->
     <title>Title</title>
 </head>
 <body>
@@ -42,11 +45,53 @@
     <div class="h3" id="cost_div">
         Price : 299
     </div>
+
+    <!--CB-modal -->
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary mx-2" id="launch_modal" data-toggle="modal"
+            data-target="#modal_save_design" onclick="GetDataForModal()">
+        Save Design
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal_save_design" tabindex="-1" role="dialog" aria-labelledby="modal_label_save"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal_label_save">Save Design</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal_body_save">
+                    object we got is visible in console
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save Private</button>
+                    <button type="button" class="btn btn-primary">Save Public</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- for Modal -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+            integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"
+            integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+            crossorigin="anonymous"></script>
+    <!--for Modal-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="change_tshirt_color.js"></script>
     <script src="imageProcessing.js"></script>
     <script src="finalizeDesign.js"></script>
+    <script src="save_design.js"></script>
 </div>
 
 </body>
