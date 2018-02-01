@@ -26,6 +26,7 @@ function addImageFront() {
         designArea_front.appendChild(newImageDiv);
         images_front = $(".images_front");
         setResizable(images_front);
+        addCloseBtn(images_front, 'front');
     }
 }
 
@@ -42,6 +43,7 @@ function addImageBack() {
         designArea_back.appendChild(newImageDiv);
         images_back = $(".images_back");
         setResizable(images_back);
+        addCloseBtn(images_back, 'back');
     }
 }
 
@@ -105,4 +107,20 @@ function alignImageInsideDesignArea() {
     }
 
     $(imageToBeMoved).animate({left: reAdjustedLeft, top: reAdjustedTop});
+}
+
+function addCloseBtn(JQueryElement, FrontOrBack) {
+    // append CloseButton to last element of JQueryElement it get
+    var b = $('<button type="button" class="close" aria-label="Close">\n' +
+        '  <span aria-hidden="true">&times;</span>\n' +
+        '</button>');
+    JQueryElement.last().append(b);
+    b.click(() => {
+        JQueryElement.last().remove();
+        if (FrontOrBack === 'front') {
+            input_front.value = '';
+        } else {
+            input_back.value = '';
+        }
+    })
 }
