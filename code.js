@@ -2,6 +2,7 @@ let input_front = document.getElementById('img_input_front');
 let designArea_front = document.getElementById('design_area_front');
 let input_back = document.getElementById('img_input_back');
 let designArea_back = document.getElementById('design_area_back');
+let costDiv = document.getElementById('cost_div');
 
 let initialX;
 let initialY;
@@ -10,10 +11,14 @@ let imageToBeMoved;
 let images_front;
 let images_back;
 
+let cost = 299;
+
 input_front.addEventListener('change', addImageFront);
 input_back.addEventListener('change', addImageBack);
 
 function addImageFront() {
+    cost += 50;
+    updateCost();
     let image = input_front.files[0];
     let reader = new FileReader();
     reader.readAsDataURL(image);
@@ -31,6 +36,8 @@ function addImageFront() {
 }
 
 function addImageBack() {
+    cost += 50;
+    updateCost();
     let image = input_back.files[0];
     let reader = new FileReader();
     reader.readAsDataURL(image);
@@ -116,6 +123,8 @@ function addCloseBtn(JQueryElement, FrontOrBack) {
         '</button>');
     JQueryElement.last().append(b);
     b.click(() => {
+        cost -= 50;
+        updateCost();
         JQueryElement.last().remove();
         if (FrontOrBack === 'front') {
             input_front.value = '';
@@ -123,4 +132,8 @@ function addCloseBtn(JQueryElement, FrontOrBack) {
             input_back.value = '';
         }
     })
+}
+
+function updateCost() {
+    costDiv.innerHTML = 'Price : ' + cost;
 }

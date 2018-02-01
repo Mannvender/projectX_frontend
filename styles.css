@@ -6,16 +6,23 @@ body {
 div[id^="design_area_"], div[id*=" design_area_"] {
     width: 220px;
     height: 350px;
-    border: 5px solid black;
+    border: 3px dashed transparent;
     position: absolute;
     top: 110px;
-    left: 155px;
+    left: 152px;
+}
+
+#design_area_front:hover {
+    border: 3px dashed #a211d9;
+}
+
+#design_area_back:hover {
+    border: 3px dashed #a211d9;
 }
 
 div[class^="images_"], div[class*=" images_"] {
     width: 208px;
     height: 117px;
-    border: 2px solid #939187;
     /*to preserver aspect ratio try - background-size: contain OR cover*/
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -40,4 +47,8 @@ div[class^="images_"], div[class*=" images_"] {
 
 #green-btn {
     background-color: #34bf33
+}
+
+#cost_div {
+    display: inline;
 }
