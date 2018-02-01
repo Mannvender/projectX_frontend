@@ -2,7 +2,6 @@ body {
     margin-top: 30px;
 }
 
-/*For more info about css selectors. Visit - https://stackoverflow.com/questions/3338680/is-there-a-css-selector-by-class-prefix*/
 div[id^="design_area_"], div[id*=" design_area_"] {
     width: 220px;
     height: 350px;
@@ -20,7 +19,7 @@ div[id^="design_area_"], div[id*=" design_area_"] {
     border: 3px dashed #a211d9;
 }
 
-div[class^="images_"], div[class*=" images_"] {
+.images {
     width: 208px;
     height: 117px;
     /*to preserver aspect ratio try - background-size: contain OR cover*/
