@@ -14,22 +14,26 @@ let greyBtn = $('#grey-btn');
 
 $('#img_input_back').hide();
 $('#design_area_back').hide();
+$('#add_text_btn_back').hide();
 
 frontViewBtn.click(() => {
     transparentImage.attr('src', './img/tshirt_front.png');
     $('#img_input_back').hide();
     $('#design_area_back').hide();
+    $('#add_text_btn_back').hide();
     $('#img_input_front').show();
     $('#design_area_front').show();
-
+    $('#add_text_btn_front').show();
 });
 
 backViewBtn.click(() => {
     transparentImage.attr('src', './img/tshirt_back.png');
     $('#img_input_front').hide();
     $('#design_area_front').hide();
+    $('#add_text_btn_front').hide();
     $('#img_input_back').show();
     $('#design_area_back').show();
+    $('#add_text_btn_back').show();
 });
 
 whiteBtn.click(() => {

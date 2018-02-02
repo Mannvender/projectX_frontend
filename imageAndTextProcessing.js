@@ -1,45 +1,47 @@
-let input_front = document.getElementById('img_input_front');
+let imageInputFront = document.getElementById('img_input_front');
+let imageInputBack = document.getElementById('img_input_back');
+
 let designArea_front = $('#design_area_front');
-let input_back = document.getElementById('img_input_back');
 let designArea_back = $('#design_area_back');
+
+let textInput = $('#text_input');
+let fontSizeInput = $('#font_size_input');
+
 let costDiv = document.getElementById('cost_div');
 
 let cost = 299;
-let numberOfImagesAdded = 0;
-
-input_front.addEventListener('change', () => addImage(true));
-input_back.addEventListener('change', () => addImage(false));
+let numberOfElementsAdded = 0;
 
 function addImage(front) {
     cost += 50;
     updateCost();
     let image;
-    front ? image = input_front.files[0] : image = input_back.files[0] ;
+    front ? image = imageInputFront.files[0] : image = imageInputBack.files[0];
     let reader = new FileReader();
     reader.readAsDataURL(image);
     reader.onloadend = () => {
-        let newImageId = numberOfImagesAdded + 1;
-        let newImageDiv = $(`<div class="images" data-id="${newImageId}" style="background-image: url(${reader.result})">
-                <span onclick="deleteImage(${newImageId})" class="floating-icon-container shadow delete-icon-container">
+        let newImageId = numberOfElementsAdded + 1;
+        let newImageDiv = $(`<div class="image" data-id="${newImageId}" style="background-image: url(${reader.result})">
+                <span onclick="deleteElement(${newImageId})" class="floating-icon-container shadow delete-icon-container">
                 <i class="fa fa-trash floating-icon"></i>
                 </span>
             </div>`);
         front ? designArea_front.append(newImageDiv) : designArea_back.append(newImageDiv);
-        numberOfImagesAdded++;
-        setDragableAndResizable($(newImageDiv));
+        numberOfElementsAdded++;
+        setDraggable(newImageDiv);
+        setResizable(newImageDiv);
     };
 }
 
-function deleteImage(imageId) {
-    $(`[data-id='${imageId}']`).remove();
-}
-
-function setDragableAndResizable(jqueryElement) {
+function setDraggable(jqueryElement) {
     jqueryElement.draggable({
-        snap: true,
         cursor: 'move',
         stop: alignImageInsideDesignArea
-    }).resizable({
+    })
+}
+
+function setResizable(jqueryElement) {
+    jqueryElement.resizable({
         // animate: true,
         // animateEasing: "easeOutBounce",
         // ghost: true,
@@ -84,7 +86,38 @@ function alignImageInsideDesignArea(event) {
         reAdjustedTop = currentTop;
     }
 
-    $(imageToBeMoved).animate({left: reAdjustedLeft, top: reAdjustedTop});
+    imageToBeMoved.animate({left: reAdjustedLeft, top: reAdjustedTop});
+}
+
+function addText(front) {
+    let text = textInput.val();
+    let fontSize = fontSizeInput.val();
+    let textId = numberOfElementsAdded + 1;
+
+    let newTextElement = $(`<span class="text" data-id="${textId}">asd</span>`);
+    let deleteIcon = $(`<span onclick="deleteElement(${textId})" class="floating-icon-container shadow delete-icon-container">
+                <i class="fa fa-trash floating-icon"></i>
+                </span>`);
+
+    newTextElement.html(text);
+    newTextElement.css({fontSize: fontSize + 'px'});
+    newTextElement.append(deleteIcon);
+
+    setDraggable(newTextElement);
+    front ? designArea_front.append(newTextElement) : designArea_back.append(newTextElement);
+
+    // Clear inputs
+    textInput.val('');
+    fontSizeInput.val('');
+
+    cost += parseInt(fontSize);
+    updateCost();
+}
+
+function deleteElement(imageId) {
+    $(`[data-id='${imageId}']`).remove();
+    cost -= 50;
+    updateCost();
 }
 
 function updateCost() {

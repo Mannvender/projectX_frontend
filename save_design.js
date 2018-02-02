@@ -9,7 +9,7 @@ function GetDataForModal() {
     DesignAttributes.colour = $("#tshirt_block").css("background-color");
     DesignAttributes.price = cost;
 
-    $(".images").each((index, obj) => {
+    $(".image").each((index, obj) => {
         let imageObject = {};
         imageObject.url = obj.style.backgroundImage;
         if (!isNaN(obj.style.top)) {

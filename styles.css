@@ -12,15 +12,22 @@ body {
 }
 
 #tshirt_block:hover .design-area {
-    border: 3px dashed #a211d9 !important;
+    border: 3px dashed #a211d9;
 }
 
-.images {
+.image {
     width: 208px;
     height: 117px;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.text {
+    user-select: none;
     position: absolute;
     top: 0;
     left: 0;
