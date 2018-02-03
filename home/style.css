@@ -1,0 +1,26 @@
+#header {
+    min-height: 30px;
+    background-color: #4d454a;
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    color: white;
+    text-decoration: none;
+}
+
+.carousel-item {
+    max-height: 500px;
+    height: 100%;
+    width: 100%;
+}
+
+.imgs {
+    max-height: inherit;
+    height: 100%;
+    width: 100%;
+}
+
+#popular_items {
+    background-color: #d0e0f3;
+}
