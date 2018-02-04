@@ -1,0 +1,71 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #f1f1f1;
+}
+
+.white-background {
+    background-color: white;
+}
+
+#cover_image {
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    background: url(../img/women-shirt16:9.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+#typewriter {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    position: relative;
+    top: 50vh;
+    transform: translateY(-50%);
+}
+
+#company_name {
+    font-family: 'Nosifer', cursive;
+    font-size: 70px;
+    position: relative;
+    top: 50vh;
+    transform: translateY(-50%);
+}
+
+#silk_background {
+    background: url(../img/fabric_quality.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+#rick_and_morty_background {
+    background: url(../img/rick_and_morty_tshirt.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+#bad_drawing_background {
+    background: url(../img/bull.jpg) no-repeat center center;
+    background-size: 100%;
+}
+
+.full-screen-height {
+    height: 100vh;
+}
+
+.side-text {
+    display: inline-block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.side-text-heading {
+    font-family: 'Rammetto One', cursive;
+    font-size: 40px;
+}
+
+.side-text-content {
+    font-family: 'Berkshire Swash';
+    font-size: 25px;
+}
