@@ -22,7 +22,7 @@ function addImage(front) {
     reader.onloadend = () => {
         let newImageId = numberOfElementsAdded + 1;
         let newImageDiv = $(`<div class="image" data-id="${newImageId}" style="background-image: url(${reader.result})">
-                <span onclick="deleteElement(${newImageId})" class="floating-icon-container shadow delete-icon-container">
+                <span onclick="deleteElement(${newImageId},${front})" class="floating-icon-container shadow delete-icon-container">
                 <i class="fa fa-trash floating-icon"></i>
                 </span>
             </div>`);
@@ -114,10 +114,15 @@ function addText(front) {
     updateCost();
 }
 
-function deleteElement(imageId) {
+function deleteElement(imageId, front) {
     $(`[data-id='${imageId}']`).remove();
     cost -= 50;
     updateCost();
+    if (front) {
+        imageInputFront.value = '';
+    } else {
+        imageInputBack.value = '';
+    }
 }
 
 function updateCost() {

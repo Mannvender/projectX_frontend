@@ -1,10 +1,246 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href=" https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 </head>
 <body>
+<div class="container-fluid" id="header">
+    <a class="float-left text-dark header_link mx-2" href="">sell your artwork</a>
+    <a class="float-right text-dark header_link mx-2" href="">track order</a>
+    <a class="float-right text-dark header_link mx-2" href="">signup/login</a>
+</div>
+<nav class="navbar navbar-dark bg-dark sticky-top">
+    <span class="navbar-brand mb-0 h1">Navbar</span>
+</nav>
+<div id="carousel_homepage" class="carousel slide" data-pause="hover" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item">
+            <img class="d-block w-100 imgs" src="./img/c1.jpg" alt="First slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100 imgs" src="./img/c2.jpg" alt="Second slide">
+        </div>
+        <div class="carousel-item active">
+            <img class="d-block w-100 imgs" src="./img/c3.jpg" alt="Second slide">
+        </div>
+    </div>
+    <a class="carousel-control-prev " href="#carousel_homepage" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next " href="#carousel_homepage" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<div class="container-fluid align-items-center my-2" id="offers">
+    <div class="row p-3">
+        <div class="col-12 col-md-6 my-2 d-inline">
+            <div class="card text-center">
+                <div class="card-body">
+                    <p class="display-4 font-weight-bold">MINIMUM 10% OFF</p>
+                    <h6>ON POPULAR DESIGNS</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 my-2 d-inline">
+            <div class="card text-center">
+                <div class="card-body">
+                    <p class="display-4 font-weight-bold">BUY 2 GET 50 OFF</p>
+                    <h6>100 OFF ON 3</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid my-2" id="popular_items">
+    <div class="container">
+        <div class="row my-2">
+            <h1 class="col mt-5">Only the Best</h1>
+        </div>
+        <div class="row my-2">
+            <p class="col">Popular categories that people are shopping for right now</p>
+        </div>
+        <div class="row my-2">
+            <a class=" col-12 col-sm-6 col-lg-4 col-md-4" href=".">
+                <img class="card-img mb-5" src="img/tshirt2.jpg">
+            </a>
+            <a class="col-12 col-sm-6 col-lg-4 col-md-4" href=".">
+                <img class="card-img mb-5" src="img/tshirt2.jpg">
+            </a>
+            <a class="col-12 col-sm-6 col-lg-4 col-md-4" href=".">
+                <img class="card-img mb-5" src="img/tshirt2.jpg">
+            </a>
+            <a class="col-12 col-sm-6 col-lg-4 col-md-4" href=".">
+                <img class="card-img mb-5" src="img/tshirt2.jpg">
+            </a>
+        </div>
+    </div>
+</div>
+<div class="d-none d-md-block" id="particles-js"></div>
+<div class=" container-fluid my-2" id="design_homepage">
+    <div class="container" id="realDeal">
+        <div class="row my-2">
+            <h1 class="col mt-5">Design your t-shirt</h1>
+        </div>
+        <div class="row my-2 text-secondary">
+            <p class="col">Put your design for other people to buy</p>
+        </div>
+        <div class="row my-2 text-secondary">
+            <p class="col">Earn 25 RESPECT per sale</p>
+        </div>
+        <div class="row my-2 text-secondary">
+            <p class="col">Convert RESPECT to real money and transfer to bank account*</p>
+        </div>
+        <div class="row my-2 text-secondary">
+            <p class="col">Save designs as public or private</p>
+        </div>
+        <div class="row my-2">
+            <a class="design-btn m-2" href=".">
+                <span class="away">Design</span>
+                <span class="over">AWESOME</span>
+            </a>
+        </div>
+    </div>
+</div>
 
+<div class="container-fluid">
+    <div class="container my-2 text-center">
+        <link href="http://fonts.googleapis.com/css?family=Cabin:400,500,600,bold" rel="stylesheet" type="text/css">
+
+        <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:regular,bold" rel="stylesheet"
+              type="text/css">
+
+        <div class="container" id="pagegradient"></div>
+
+        <a class="button_aboutUs my-2">
+            <span>About Us</span>
+        </a>
+    </div>
+</div>
+<div class="container-fluid text-secondary border_top_light" id="footer">
+    <div class="row my-2">
+        <div class="col-12 col-sm-12 col-md-3 my-2 border_right_light">
+            <h5 class="text-dark">
+                Download App
+            </h5>
+            <a class="m-3 p-0 text-secondary" id="gplay_icon" href=".">
+                <i class="fab fa-google-play fa-3x"></i>
+            </a>
+            <h5 class="m-2 d-inline d-md-block">
+                200+ USERS
+            </h5>
+            <h5 class="m-2 d-inline d-md-block">
+                2000+ STYLES
+            </h5>
+        </div>
+        <div class="col-12 col-sm-12 col-md-2 my-2 text-center text-md-left">
+            <h5 class="text-dark d-none d-sm-none d-md-block">COMPANY NAME</h5>
+            <a class="text-secondary d-inline d-md-block m-2 " href=".">Help / Support</a>
+            <a class="text-secondary d-inline d-md-block m-2" href=".">About Us</a>
+            <a class="text-secondary d-inline d-md-block m-2" href=".">Careers</a>
+            <a class="text-secondary d-inline d-md-block m-2" href=".">FAQ's</a>
+            <a class="text-secondary d-inline d-md-block m-2" href=".">Coupons</a>
+        </div>
+        <div class="col-2 my-2 d-none d-sm-none d-md-block">
+            <h5 class="text-dark">
+                OUR POLICIES
+            </h5>
+            <a class="text-secondary d-block my-2">Terms and Conditions</a>
+        </div>
+        <div class="col-5 d-none d-sm-none d-md-block my-2">
+            <h5 class="text-dark">SOCIAL MEDIA LINKS</h5>
+            <a class="col-4 text-secondary my-2" href=".">
+                <i class="fab fa-facebook fa-6x"></i>
+            </a>
+            <a class="col-4 text-secondary my-2" href=".">
+                <i class="fab fa-twitter fa-6x"></i>
+            </a>
+            <a class="col-4 text-secondary my-2" href=".">
+                <i class="fab fa-instagram fa-6x"></i>
+            </a>
+        </div>
+    </div>
+    <div class="row border_top_light text-center my-2">
+        <h5 class="col-6 my-5 d-none d-md-inline">
+            <i class="fas fa-rupee-sign fa-3x"></i>
+            CASH ON DELIVERY
+        </h5>
+        <h5 class="col-6 my-5 d-none d-md-inline">
+            <i class="fas fa-truck fa-3x"></i>
+            FREE SHIPPING*
+        </h5>
+    </div>
+    <div class="d-none d-sm-none d-md-block border_top_light m-2">
+        <h6 class="mt-4">Online Custom T-shirt Shopping: convenient, fast and affordable!</h6>
+        <p>Shopping is fun and exhilarating and more so when you can shop 24x7 without leaving the comfort of home. This
+            in simpler words is what we call Company Name! Online shopping at Company Name is convenient and affordable.
+            You
+            can find your desired products more quickly and easily using our user-friendly online shopping platform.
+            Fill your cart up to the brim in just a few seconds and get swift home delivery for all orders. All of this
+            topped with our exclusive offers makes for an exciting, irresistible combo!</p>
+        <h6>Company Name: the hottest online fashion destination of all times!</h6>
+        <p>‘Fashion’ is definitely more accessible with Company Name. You can find 300+ styles from YouTube Celebrities,
+            StandUp Comedians.</p>
+        <h6>Avail added online shopping benefits</h6>
+        <p>You choose your product, order it online, and we deliver it right at your doorstep anywhere in India. You
+            just need to pay for the product, while we ensure free shipping* all the time on almost everything with no
+            strings attached. For any second thoughts after purchase, we have in place a no questions asked return
+            policy as well. To offer you a safe and risk-free online shopping experience, we offer COD facility. Buy
+            gifts for your loved ones and avail our special gift-wrap facility at a nominal cost! Could you have asked
+            for more?</p>
+        <h6>Company Name: the 24 x7 Online Fashion & Lifestyle Store for everyone</h6>
+        <p>Forget the fashion streets of the world. We, at Company Name, have all that you need to glam up your fashion
+            quotient. From an extensive range of men’s shirts, western dresses for women, funky clothes for kids and
+            matching footwear, sports shoes and accessories for everyone, we purvey diversity of choices in online
+            shopping in India under one umbrella. Your Comapny Name Online Shop has arrived! Do not miss the attractive
+            best
+            buy prices and super discount coupons. Get more, pay less!</p>
+    </div>
+    <div class="container border_top_light my-2">
+        <div class="row my-2">
+            <div class=" col-12 col-md-4 text-center text-md-left">
+                <h6 class="h6 text-dark d-none d-md-block">SECURE SHOPPING</h6>
+                <i class="fas fa-lock fa-2x m-2"></i>
+            </div>
+            <div class="col-8 d-none d-md-block">
+                <h6 class="h6 text-dark">PAYMENT OPTIONS</h6>
+                <i class="far fa-credit-card fa-2x m-2"></i>
+                <i class="fas fa-credit-card fa-2x m-2"></i>
+            </div>
+        </div>
+
+    </div>
+    <div class="container text-center my-2 border_top_light">
+        <p class="text">
+            <small>
+                Copyright © 2018 Company Name. All Rights Reserved
+            </small>
+        </p>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="code.js"></script>
 </body>
 </html>
