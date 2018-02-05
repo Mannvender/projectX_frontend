@@ -177,6 +177,7 @@ a:hover, a:visited, a:link, a:active {
 }
 
 canvas {
+    max-height: 500px;
     position: absolute;
     z-index: -1;
 }
@@ -230,4 +231,8 @@ canvas {
 }
 .design-btn:hover {
     background: #2D3142;
+}
+
+.list-group-item {
+    background: transparent;
 }
