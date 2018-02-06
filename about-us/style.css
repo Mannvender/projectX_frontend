@@ -1,8 +1,17 @@
 html, body {
-    margin: 0;
     padding: 0;
     text-align: center;
+    /*overflow-x for some reason messes up the footer! WTF?*/
+    /*overflow-x: hidden; !*keyframe animations sometimes brings horizontal scroll bar*!*/
     background-color: #f1f1f1;
+}
+
+#site_content {
+    position: relative;
+    z-index: 1;
+    -webkit-box-shadow: #000 0 7px 35px 0;
+    -moz-box-shadow: #000 0 7px 35px 0;
+    box-shadow: #000 0 7px 35px 0;
 }
 
 .white-background {
@@ -66,6 +75,20 @@ html, body {
 }
 
 .side-text-content {
-    font-family: 'Berkshire Swash';
+    font-family: 'Berkshire Swash', cursive;
     font-size: 25px;
+}
+
+.testimonial {
+    text-align: left;
+}
+
+.showcase-img {
+    width: 300px;
+    height: 300px;
+}
+
+/*default color is white which makes it invisible*/
+.slick-prev:before, .slick-next:before {
+    color:black !important;
 }

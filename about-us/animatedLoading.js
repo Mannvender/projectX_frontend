@@ -1,30 +1,36 @@
-window.addEventListener('scroll', animate);
-window.addEventListener('load', animate);
+// Do not use this on transformed elements because it's transformation will be calculated after animation is finished
+
+window.addEventListener('scroll', dramaticEntrance);
+window.addEventListener('load', dramaticEntrance);
 
 // To understand this function watch- https://www.youtube.com/watch?v=CBQGl6zokMs
 // Get animation names from https://daneden.github.io/animate.css/
 $.fn.extend({
     intro: function (animationName, delay) {
         let objectBeingAnimated = $(this);
-        if (delay) {
-            objectBeingAnimated.css({'animation-delay': delay + 's'});
-        }
-        let animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-        objectBeingAnimated.removeClass('hidden').addClass('visible animated ' + animationName).one(animationEnd, () => {
-            objectBeingAnimated.removeClass('animated ' + animationName);
+        if (objectBeingAnimated.hasClass('hidden')) {
             if (delay) {
-                objectBeingAnimated.css({'animation-delay': '0s'}); // Reset animation delay
+                objectBeingAnimated.css({'animation-delay': delay + 's'});
             }
-        });
-        return this;
+            let animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+            objectBeingAnimated.removeClass('hidden').addClass('visible animated ' + animationName).one(animationEnd, () => {
+                objectBeingAnimated.removeClass('animated ' + animationName);
+                if (delay) {
+                    objectBeingAnimated.css({'animation-delay': '0s'}); // Reset animation delay
+                }
+            });
+            return this;
+        }
     },
     outro: function (animationName) {
         let objectBeingAnimated = $(this);
-        let animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-        objectBeingAnimated.addClass('animated ' + animationName).one(animationEnd, () => {
-            objectBeingAnimated.addClass('hidden').removeClass('visible animated ' + animationName);
-        });
-        return this;
+        if (!objectBeingAnimated.hasClass('animated')) {
+            let animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+            objectBeingAnimated.addClass('animated ' + animationName).one(animationEnd, () => {
+                objectBeingAnimated.addClass('hidden').removeClass('visible animated ' + animationName);
+            });
+            return this;
+        }
     },
     startle: function (animationName) {
         let objectBeingAnimated = $(this);
@@ -36,7 +42,7 @@ $.fn.extend({
     }
 });
 
-function animate(introAnimation) {
+function dramaticEntrance(introAnimation) {
     let hiddenElements = document.getElementsByClassName('hidden');
     let visibleElements = document.getElementsByClassName('visible');
 
@@ -48,7 +54,8 @@ function animate(introAnimation) {
         let element = hiddenElements[i];
         let elementHeight = parseInt(window.getComputedStyle(element).height);
         let elementAnimation = element.getAttribute('data-animation');
-        let elementPosition = getElementYPosition(element);
+        let elementPosition = $(element).offset().top;
+
 
         let isvisible = amountOfPageSeen > elementPosition + elementHeight;
 
@@ -61,7 +68,7 @@ function animate(introAnimation) {
 
     for (let i = 0; i < visibleElements.length; i++) {
         let element = visibleElements[i];
-        let elementPosition = getElementYPosition(element);
+        let elementPosition = $(element).offset().top;
         let elementHeight = parseInt(window.getComputedStyle(element).height);
 
         let isvisible = amountOfPageSeen > elementPosition;
@@ -69,15 +76,4 @@ function animate(introAnimation) {
             setTimeout(() => $(element).removeClass('visible').addClass('hidden'), 100);
         }
     }
-}
-
-function getElementYPosition(element) {
-    // let elementPosition = 0;
-    // while(element) {
-    //     elementPosition += (element.offsetTop);
-    //     element = element.offsetParent;
-    // }
-    // return elementPosition;
-
-    return $(element).offset().top; // Use jquery's offest because javascript's doesn't calculate element's transformation
 }
