@@ -25,74 +25,239 @@
 <nav class="navbar navbar-dark navbar-expand-lg bg-dark sticky-top">
     <img class="d-block d-md-none" id="logo-after" src="img/k_final.png">
     <div class="hexagon-after d-block d-md-none"><span></span></div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav  ml-auto">
+        <ul class="navbar-nav  ml-auto text-right">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                <a class="nav-link dropdown-toggle bg-dark" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     SHOP
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                    <div class="row">
+                        <div class="col-6">
+                            <h4 class="dropdown-header ">For Men</h4>
+                            <a class="dropdown-item " href="#">t-shirts</a>
+                            <a class="dropdown-item " href="#">shirts</a>
+                            <a class="dropdown-item " href="#">hoodies</a>
+                        </div>
+                        <div class="col-6">
+                            <h4 class="dropdown-header ">For Women</h4>
+                            <a class="dropdown-item " href="#">t-shirts</a>
+                            <a class="dropdown-item " href="#">shirts</a>
+                            <a class="dropdown-item " href="#">hoodies</a>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider "></div>
+                    <a class="dropdown-item " href="#">Show for all</a>
                 </div>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="#">Design</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">About Us</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
+                <a class="nav-link disabled" href="#">Collection By Stars</a>
             </li>
         </ul>
-        <form class="" method="get" action="" id="searchbox5">
+        <form class="ml-auto ml-md-0" method="get" action="" id="searchbox5">
             <input id="search52" name="q" type="text" size="40" placeholder="Search..."/>
         </form>
+        <ul class="navbar-nav text-right">
+            <li class="nav-item ">
+                <a class="nav-link" href="#">Profile</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="#">Cart</a>
+            </li>
+        </ul>
     </div>
-
 </nav>
-<div class="col">
-
-</div>
-<div class="container-fluid border_top_light my-2" id="">
-    <div class="container">
-
+<a class="" href="javascript:" id="return-to-top"><i class="fas fa-arrow-up"></i></a>
+<div class="container-fluid row" id="filters">
+    <div class="col-12 col-md-3 mt-5 " id="">
+        <div class="row">
+            <div class="col-4 col-md-12 mt-md-5 ml-md-5 pl-md-5">
+                <fieldset class="form-group">
+                    <h5 class="">CATEGORIES</h5>
+                    <div class="form-check radio radio-primary">
+                        <input class="form-check-input" type="radio" name="categories" id="gridRadios1"
+                               value="option1" checked>
+                        <label class="form-check-label" for="gridRadios1">
+                            T-shirts
+                        </label>
+                    </div>
+                    <div class="form-check radio radio-primary">
+                        <input class="form-check-input" type="radio" name="categories" id="gridRadios2"
+                               value="option2">
+                        <label class="form-check-label" for="gridRadios2">
+                            Shirts
+                        </label>
+                    </div>
+                    <div class="form-check disabled radio radio-primary">
+                        <input class="form-check-input" type="radio" name="categories" id="gridRadios10"
+                               value="option3" disabled>
+                        <label class="form-check-label" for="gridRadios10">
+                            Hoodies
+                        </label>
+                    </div>
+                    <div class="form-check disabled radio radio-primary">
+                        <input class="form-check-input" type="radio" name="categories" id="gridRadios11"
+                               value="option3" disabled>
+                        <label class="form-check-label" for="gridRadios11">
+                            All
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-4 col-md-12 ml-md-5 pl-md-5">
+                <fieldset class="form-group">
+                    <h5 class="">GENDER</h5>
+                    <div class="form-check radio radio-primary">
+                        <input class="form-check-input" type="radio" name="gender" id="gridRadios4"
+                               value="option1" checked>
+                        <label class="form-check-label" for="gridRadios4">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check radio radio-primary">
+                        <input class="form-check-input" type="radio" name="gender" id="gridRadios5"
+                               value="option2">
+                        <label class="form-check-label" for="gridRadios5">
+                            Female
+                        </label>
+                    </div>
+                    <div class="form-check disabled radio radio-primary">
+                        <input class="form-check-input" type="radio" name="gender" id="gridRadios6"
+                               value="option3" disabled>
+                        <label class="form-check-label" for="gridRadios6">
+                            Unisex
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
+            <div class="col-4 col-md-12 ml-md-5 pl-md-5">
+                <fieldset class="form-group">
+                    <h5 class="">THEMES</h5>
+                    <div class="form-check radio radio-primary">
+                        <input class="form-check-input" type="radio" name="themes" id="gridRadios9"
+                               value="option1" checked>
+                        <label class="form-check-label" for="gridRadios9">
+                            Classy
+                        </label>
+                    </div>
+                    <div class="form-check radio radio-primary">
+                        <input class="form-check-input" type="radio" name="themes" id="gridRadios7"
+                               value="option2">
+                        <label class="form-check-label" for="gridRadios7">
+                            Funny
+                        </label>
+                    </div>
+                    <div class="form-check disabled radio radio-primary">
+                        <input class="form-check-input" type="radio" name="themes" id="gridRadios12"
+                               value="option3" disabled>
+                        <label class="form-check-label" for="gridRadios12">
+                            Abstract
+                        </label>
+                    </div>
+                    <div class="form-check disabled radio radio-primary">
+                        <input class="form-check-input" type="radio" name="themes" id="gridRadios13"
+                               value="option3" disabled>
+                        <label class="form-check-label" for="gridRadios13">
+                            All
+                        </label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
     </div>
-</div>
-<div class="container-fluid my-2" id="popular_items">
-    <div class="container">
-        <div class="row my-2">
-            <h1 class="col mt-5">Only the Best</h1>
-        </div>
-        <div class="row my-2">
-            <p class="col">Popular categories that people are shopping for right now</p>
-        </div>
-        <div class="row my-2">
-            <a class=" col-12 col-sm-6 col-lg-4 col-md-4" href=".">
-                <img class="card-img mb-5" src="img/tshirt2.jpg">
-            </a>
-            <a class="col-12 col-sm-6 col-lg-4 col-md-4" href=".">
-                <img class="card-img mb-5" src="img/tshirt2.jpg">
-            </a>
-            <a class="col-12 col-sm-6 col-lg-4 col-md-4" href=".">
-                <img class="card-img mb-5" src="img/tshirt2.jpg">
-            </a>
-            <a class="col-12 col-sm-6 col-lg-4 col-md-4" href=".">
-                <img class="card-img mb-5" src="img/tshirt2.jpg">
-            </a>
+    <div class="col-12 col-md-9">
+        <div class="container" id="items">
+            <div class="row my-2">
+                <h1 class="col mt-5">Tshirts For Men</h1>
+                <span class="col mt-5 align-self-center text-secondary">200 Items</span>
+            </div>
+            <div class="row mt-2">
+                <a class=" col-12 col-sm-6 col-md-3 mb-5" href=".">
+                    <img class="card-img" src="http://via.placeholder.com/600x900">
+                </a>
+                <a class="col-12 col-sm-6 col-md-3 mb-5" href=".">
+                    <img class="card-img " src="img/tshirt2.jpg">
+                </a>
+                <a class="col-12 col-sm-6 col-md-3 mb-5" href=".">
+                    <img class="card-img " src="img/tshirt2.jpg">
+                </a>
+                <a class="col-12 col-sm-6 col-md-3 mb-5" href=".">
+                    <img class="card-img " src="img/tshirt2.jpg">
+                </a>
+            </div>
+            <div class="row mt-2">
+                <a class=" col-12 col-sm-6 col-md-3 mb-5" href=".">
+                    <img class="card-img" src="http://via.placeholder.com/600x900">
+                </a>
+                <a class="col-12 col-sm-6 col-md-3 mb-5" href=".">
+                    <img class="card-img " src="img/tshirt2.jpg">
+                </a>
+                <a class="col-12 col-sm-6 col-md-3 mb-5" href=".">
+                    <img class="card-img " src="img/tshirt2.jpg">
+                </a>
+                <a class="col-12 col-sm-6 col-md-3 mb-5" href=".">
+                    <img class="card-img " src="img/tshirt2.jpg">
+                </a>
+            </div>
+            <div class="row mt-2">
+                <a class=" col-12 col-sm-6 col-md-3 mb-5" href=".">
+                    <img class="card-img" src="http://via.placeholder.com/600x900">
+                </a>
+                <a class="col-12 col-sm-6 col-md-3 mb-5" href=".">
+                    <img class="card-img " src="img/tshirt2.jpg">
+                </a>
+                <a class="col-12 col-sm-6 col-md-3 mb-5" href=".">
+                    <img class="card-img " src="img/tshirt2.jpg">
+                </a>
+                <a class="col-12 col-sm-6 col-md-3 mb-5" href=".">
+                    <img class="card-img " src="img/tshirt2.jpg">
+                </a>
+            </div>
         </div>
     </div>
-</div>
 
+</div>
+<nav aria-label="...">
+    <ul class="pagination pagination-lg justify-content-center">
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+            </a>
+        </li>
+        <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">1</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+            <a class="page-link" href="#">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+            </a>
+        </li>
+    </ul>
+</nav>
 <div class="container-fluid text-secondary border_top_light" id="footer">
     <div class="row my-2 mx-md-3 text-center text-md-left">
         <div class="col-12 col-sm-12 col-md-3 my-2 border_right_light">
@@ -162,10 +327,13 @@
     </div>
 </div>
 
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+<script
+        src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
