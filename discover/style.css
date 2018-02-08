@@ -196,7 +196,7 @@ a:hover, a:visited, a:link, a:active {
 }
 
 #logo-after {
-    top: 0px;
+    top: 5px;
     left: 10%;
     z-index: 2000;
     position: absolute;
@@ -472,6 +472,27 @@ a:hover, a:visited, a:link, a:active {
 }
 /*return to top*/
 
-.h-700 {
-    min-height: 400px;
+
+/*add to cart option*/
+.products .away {
+    display: block;
+}
+.products .over {
+    display: none;
+}
+.products:hover div.away {
+    display: none;
+}
+.products:hover div.over {
+    display: block;
+}
+/*add to cart option*/
+
+
+.row-50px {
+    height: 60px;
+}
+
+.card {
+    padding: 1px;
 }

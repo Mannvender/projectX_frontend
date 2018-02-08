@@ -1,3 +1,4 @@
+// ===== Hiding and Showing Navbar ======
 $(function () {
     let tempBar = $('#temp-bar');
     let logo = $('#logo');
@@ -39,4 +40,26 @@ $('#return-to-top').click(function () {      // When arrow is clicked
     $('body,html').animate({
         scrollTop: 0                       // Scroll to top of body
     }, 500);
+});
+
+
+// ===== hiding logo-after when navbar toggler is pressed ======
+$(function () {
+    let logoAfter = $('#logo-after');
+    let logoAfterBackground = $('.hexagon-after');
+    let clicked = false;
+    $('.navbar-toggler').on('click', () => {
+        if (!clicked) {
+            clicked = true;
+            logoAfter.removeClass('d-block').addClass('d-none');
+            logoAfterBackground.removeClass('d-block').addClass('d-none');
+        } else {
+            setTimeout(function () {
+                clicked = false;
+                logoAfter.removeClass('d-none').addClass('d-block');
+                logoAfterBackground.removeClass('d-none').addClass('d-block');
+            }, 500);
+
+        }
+    })
 });
