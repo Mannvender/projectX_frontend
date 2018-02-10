@@ -88,7 +88,7 @@
 <div class="container-fluid" id="product-area">
     <div class="container" id="product-details">
         <div class="row">
-            <div class="col-6 mt-5">
+            <div class="col-12 col-md-6 mt-5">
                 <div class="row">
                     <div class="col-2 mt-3">
                         <img class="card-img m-1 border-transparent" id="frontView" src="http://via.placeholder.com/500x800">
@@ -104,7 +104,7 @@
                     <p class="text-secondary">Product Code: 001 | Design By - <a href=".">User1</a></p>
                 </div>
             </div>
-            <div class="col-6 mt-5">
+            <div class="col-12 col-md-6 mt-5">
                 <h4> Design Name</h4>
                 <h6 class="text-secondary">Mens T-Shirt</h6>
                 <p>Rs. 300</p>
@@ -112,52 +112,20 @@
                     <small>Additional tax may apply; charged at checkout</small>
                 </p>
                 <h6>SELECT SIZE</h6>
-                <fieldset class="form-group">
-                    <div class="row">
-                        <div class="form-check radio radio-primary ml-2">
-                            <input class="form-check-input" type="radio" name="themes" id="gridRadios9"
-                                   value="option1" checked>
-                            <label class="form-check-label" for="gridRadios9">
-                                S
-                            </label>
-                        </div>
-                        <div class="form-check radio radio-primary ml-2">
-                            <input class="form-check-input" type="radio" name="themes" id="gridRadios7"
-                                   value="option2">
-                            <label class="form-check-label" for="gridRadios7">
-                                M
-                            </label>
-                        </div>
-                        <div class="form-check disabled radio radio-primary ml-2">
-                            <input class="form-check-input" type="radio" name="themes" id="gridRadios12"
-                                   value="option3" disabled>
-                            <label class="form-check-label" for="gridRadios12">
-                                L
-                            </label>
-                        </div>
-                        <div class="form-check disabled radio radio-primary ml-2">
-                            <input class="form-check-input" type="radio" name="themes" id="gridRadios13"
-                                   value="option3" disabled>
-                            <label class="form-check-label" for="gridRadios13">
-                                XL
-                            </label>
-                        </div>
-                    </div>
-                </fieldset>
                 <a class="m-0" href=".">
                     <small>view size chart</small>
                 </a>
                 <div class="row">
-                    <div class="circleBase type1 m-1">
+                    <div class="circleBase type1 m-1" onclick="setBackground($(this))">
                         <h6 class="circleText">S</h6>
                     </div>
-                    <div class="circleBase type1 m-1">
+                    <div class="circleBase type1 m-1" onclick="setBackground($(this))">
                         <h6 class="circleText">M</h6>
                     </div>
-                    <div class="circleBase type1 m-1">
+                    <div class="circleBase type1 m-1" onclick="setBackground($(this))">
                         <h6 class="circleText">L</h6>
                     </div>
-                    <div class="circleBase type1 m-1">
+                    <div class="circleBase type1 m-1" onclick="setBackground($(this))">
                         <h6 class="circleText">XL</h6>
                     </div>
                 </div>
@@ -171,20 +139,20 @@
     </div>
     <div class="container my-1 border_top_light" id="similar-products">
         <h6 class="row my-4">SIMILAR PRODUCTS</h6>
-        <div class="row my-4">
-            <a class="col" href=".">
+        <div class="row my-4 justify-content-center">
+            <a class="col-6 col-md-2 my-1" href=".">
                 <img class="card-img" src="http://via.placeholder.com/600x800">
             </a>
-            <a class="col" href=".">
+            <a class="col-6 col-md-2 my-1" href=".">
                 <img class="card-img" src="http://via.placeholder.com/600x800">
             </a>
-            <a class="col" href=".">
+            <a class="col-6 col-md-2 my-1" href=".">
                 <img class="card-img" src="http://via.placeholder.com/600x800">
             </a>
-            <a class="col" href=".">
+            <a class="col-6 col-md-2 my-1" href=".">
                 <img class="card-img" src="http://via.placeholder.com/600x800">
             </a>
-            <a class="col" href=".">
+            <a class="col-6 col-md-2 my-1" href=".">
                 <img class="card-img" src="http://via.placeholder.com/600x800">
             </a>
         </div>

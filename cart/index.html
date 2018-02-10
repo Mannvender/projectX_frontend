@@ -16,26 +16,30 @@
 <div class="container-fluid d-none d-md-block" id="temp-bar">
     <div class="hexagon d-none d-md-block"><span></span></div>
     <img class="d-none d-md-block" id="logo" src="img/k_final.png">
-    <h3 class="font-weight-bold " id="company-name">KELVISH</h3>
-    <h4 class="row justify-content-center" id="some-text">Bag ---- Delivery ---- Payment</h4>
-    <h4 class="row justify-content-center" id="some-text2"><i class="fas fa-lock"></i> 100% SECURE</h4>
+    <h3 class="font-weight-bold mx-3" id="company-name">KELVISH</h3>
+    <h4 class="row justify-content-center d-none d-lg-block" id="some-text">Bag ---- Delivery ---- Payment</h4>
+    <h4 class="row justify-content-center text-secondary mx-3" id="some-text2"><i class="fas fa-lock"></i> 100% SECURE
+    </h4>
+</div>
+<div class="container d-block d-md-none">
+    <p class="display-2 text-center">KELVISH</p>
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-9">
+        <div class="col-12 col-md-9">
             <div class="row my-5">
                 <h5 class="col-6">My Shopping Bag<span class="num-items">(1 Item)</span></h5>
                 <h5 class="col-6">
                     Total: Rs. 640
                 </h5>
             </div>
-            <div class="row mb-5 m-1 border-solid rounded">
-                <div class="col-3 p-0">
+            <div class="row mb-5 m-1 border-solid rounded items">
+                <div class="col-12 col-md-3 p-0">
                     <div class="card">
-                        <img src="http://via.placeholder.com/200x250" class="card-img">
+                        <a href="."> <img src="http://via.placeholder.com/200x250" class="card-img"></a>
                     </div>
                 </div>
-                <div class="col-9">
+                <div class="col-12 col-md-9">
                     <div class="row mt-2">
                         <div class="col-8">
                             <h5 class="">Design Name</h5>
@@ -61,6 +65,54 @@
                             </select>
                         </div>
                         <div class="form-group ml-3">
+                            <label for="quantity1">Qty</label>
+                            <select class="form-control" id="quantity1">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row border_top_light">
+                        <button class="btn btn-outline-danger ml-3 my-2 remove-btn" onclick="removeItem($(this))">remove
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-5 m-1 border-solid rounded items">
+                <div class="col-12 col-md-3 p-0">
+                    <div class="card">
+                        <a href="."> <img src="http://via.placeholder.com/200x250" class="card-img"></a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-9">
+                    <div class="row mt-2">
+                        <div class="col-8">
+                            <h5 class="">Design Name</h5>
+                        </div>
+                        <div class="col-4">
+                            <h5>Rs. 300</h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p class="ml-3">
+                            <small>Design by: <a href=".">User1</a></small>
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="form-group ml-3">
+                            <label for="size2">Size</label>
+                            <select class="form-control" id="size2">
+                                <option>S</option>
+                                <option>M</option>
+                                <option>L</option>
+                                <option>XL</option>
+                                <option>XXL</option>
+                            </select>
+                        </div>
+                        <div class="form-group ml-3">
                             <label for="quantity2">Qty</label>
                             <select class="form-control" id="quantity2">
                                 <option>1</option>
@@ -72,17 +124,17 @@
                         </div>
                     </div>
                     <div class="row border_top_light">
-                        <button class="btn btn-outline-danger ml-3 my-2">remove</button>
+                        <button class="btn btn-outline-danger ml-3 my-2" onclick="removeItem($(this))">remove</button>
                     </div>
                 </div>
             </div>
-            <div class="row mb-5 m-1 border-solid rounded">
-                <div class="col-3 p-0">
+            <div class="row mb-5 m-1 border-solid rounded items">
+                <div class="col-12 col-md-3 p-0">
                     <div class="card">
-                        <img src="http://via.placeholder.com/200x250" class="card-img">
+                        <a href="."> <img src="http://via.placeholder.com/200x250" class="card-img"></a>
                     </div>
                 </div>
-                <div class="col-9">
+                <div class="col-12 col-md-9">
                     <div class="row mt-2">
                         <div class="col-8">
                             <h5 class="">Design Name</h5>
@@ -98,8 +150,8 @@
                     </div>
                     <div class="row">
                         <div class="form-group ml-3">
-                            <label for="size">Size</label>
-                            <select class="form-control" id="size">
+                            <label for="size3">Size</label>
+                            <select class="form-control" id="size3">
                                 <option>S</option>
                                 <option>M</option>
                                 <option>L</option>
@@ -108,8 +160,8 @@
                             </select>
                         </div>
                         <div class="form-group ml-3">
-                            <label for="quantity">Qty</label>
-                            <select class="form-control" id="quantity">
+                            <label for="quantity3">Qty</label>
+                            <select class="form-control" id="quantity3">
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -119,59 +171,12 @@
                         </div>
                     </div>
                     <div class="row border_top_light">
-                        <button class="btn btn-outline-danger ml-3 my-2">remove</button>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-5 m-1 border-solid rounded">
-                <div class="col-3 p-0">
-                    <div class="card">
-                        <img src="http://via.placeholder.com/200x250" class="card-img">
-                    </div>
-                </div>
-                <div class="col-9">
-                    <div class="row mt-2">
-                        <div class="col-8">
-                            <h5 class="">Design Name</h5>
-                        </div>
-                        <div class="col-4">
-                            <h5>Rs. 300</h5>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <p class="ml-3">
-                            <small>Design by: <a href=".">User1</a></small>
-                        </p>
-                    </div>
-                    <div class="row">
-                        <div class="form-group ml-3">
-                            <label for="size">Size</label>
-                            <select class="form-control" id="size">
-                                <option>S</option>
-                                <option>M</option>
-                                <option>L</option>
-                                <option>XL</option>
-                                <option>XXL</option>
-                            </select>
-                        </div>
-                        <div class="form-group ml-3">
-                            <label for="quantity">Qty</label>
-                            <select class="form-control" id="quantity">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row border_top_light">
-                        <button class="btn btn-outline-danger ml-3 my-2">remove</button>
+                        <button class="btn btn-outline-danger ml-3 my-2" onclick="removeItem($(this))">remove</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-3 p-5 p-md-0">
             <h6 class="row my-5">OPTIONS</h6>
             <div class="row">
                 <form class="form-inline my-4">
@@ -226,7 +231,6 @@
             </div>
         </div>
     </div>
-
 </div>
 <a class="" href="javascript:" id="return-to-top"><i class="fas fa-arrow-up"></i></a>
 
@@ -244,7 +248,7 @@
             </div>
             <div class="col-2 d-none d-md-block">
                 <a href=".">
-                    <small class="font-weight-bold text-secondary">Need Help? Contact Us</small
+                    <small class="font-weight-bold text-secondary">Need Help? Contact Us</small>
                 </a>
             </div>
         </div>

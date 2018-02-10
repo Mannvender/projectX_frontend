@@ -107,3 +107,10 @@ $(function () {
         backView.removeClass('border-solid').addClass('border-transparent');
     });
 });
+
+
+// ==== size selector =====
+function setBackground(circle) {
+    circle.siblings().css({'background': 'white', 'color': 'black'});
+    circle.css({'background': 'black', 'color': 'white'})
+}
