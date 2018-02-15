@@ -63,3 +63,18 @@ $(function () {
         }
     })
 });
+
+// ==== removing blur and hiding size options =====
+function setBackground(circle) {
+    let sizeOptions = circle.closest('.sizeOptions');
+    sizeOptions.siblings().css({'-webkit-filter-': 'blur(0px)', 'filter': 'blur(0px)'});
+    sizeOptions.removeClass("d-inline").addClass("d-none");
+}
+
+// ==== showing size options on clicking add-TO-cart button ====
+function showSizeOptions(button) {
+    let img = button.parent().parent().siblings().first();
+    let sizeOptions = img.nextAll().eq(0);
+    img.css({'-webkit-filter-': 'blur(5px)', 'filter': 'blur(5px)'});
+    sizeOptions.removeClass("d-none").addClass("d-inline");
+}

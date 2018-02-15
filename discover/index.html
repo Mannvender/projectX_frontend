@@ -85,7 +85,7 @@
 </nav>
 <a class="" href="javascript:" id="return-to-top"><i class="fas fa-arrow-up"></i></a>
 <div class="container-fluid row" id="filters">
-    <div class="col-12 col-md-3 mt-5 " id="">
+    <div class="col-12 col-md-3 mt-5 ">
         <div class="row">
             <div class="col-4 col-md-12 mt-md-5 ml-md-5 pl-md-5">
                 <fieldset class="form-group">
@@ -188,162 +188,426 @@
                 <span class="col mt-5 align-self-center text-secondary">200 Items</span>
             </div>
             <div class="row mt-2">
-                <a class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto" href=".">
-                    <img class="card-img m-0 p-0" src="img/tshirt3.jpg">
+                <div class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto">
+                    <a href=".">
+                        <img class="card-img m-0 p-0" src="img/tshirt2.jpg">
+                    </a>
+                    <div class="container d-none sizeOptions">
+                        <div class="row">
+                            select a size
+                        </div>
+                        <div class="row">
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">S</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">M</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">L</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">XL</h6>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="card-body text-center text-secondary m-1 p-0">
                         <div class="text-center row-50px away">
                             <h5 class="">Design Name</h5>
                             <p class="">Rs. 300</p>
                         </div>
                         <div class="text-center row-50px over">
-                            <button class="btn btn-dark ">Add to Bag</button>
+                            <div class="btn btn-dark" onclick="showSizeOptions($(this))">Add to Bag</div>
                             <p class="">Sizes: S, M, XL</p>
                         </div>
                     </div>
-                </a>
-                <a class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto" href=".">
-                    <img class="card-img m-0 p-0" src="img/tshirt2.jpg">
+                </div>
+                <div class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto">
+                    <a href=".">
+                        <img class="card-img m-0 p-0" src="img/tshirt2.jpg">
+                    </a>
+                    <div class="container d-none sizeOptions">
+                        <div class="row">
+                            select a size
+                        </div>
+                        <div class="row">
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">S</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">M</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">L</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">XL</h6>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="card-body text-center text-secondary m-1 p-0">
                         <div class="text-center row-50px away">
                             <h5 class="">Design Name</h5>
                             <p class="">Rs. 300</p>
                         </div>
                         <div class="text-center row-50px over">
-                            <button class="btn btn-dark ">Add to Bag</button>
+                            <div class="btn btn-dark" onclick="showSizeOptions($(this))">Add to Bag</div>
                             <p class="">Sizes: S, M, XL</p>
                         </div>
                     </div>
-                </a>
-                <a class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto" href=".">
-                    <img class="card-img m-0 p-0" src="img/tshirt3.jpg">
+                </div>
+                <div class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto">
+                    <a href=".">
+                        <img class="card-img m-0 p-0" src="img/tshirt2.jpg">
+                    </a>
+                    <div class="container d-none sizeOptions">
+                        <div class="row">
+                            select a size
+                        </div>
+                        <div class="row">
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">S</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">M</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">L</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">XL</h6>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="card-body text-center text-secondary m-1 p-0">
                         <div class="text-center row-50px away">
                             <h5 class="">Design Name</h5>
                             <p class="">Rs. 300</p>
                         </div>
                         <div class="text-center row-50px over">
-                            <button class="btn btn-dark ">Add to Bag</button>
+                            <div class="btn btn-dark" onclick="showSizeOptions($(this))">Add to Bag</div>
                             <p class="">Sizes: S, M, XL</p>
                         </div>
                     </div>
-                </a>
-                <a class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto" href=".">
-                    <img class="card-img m-0 p-0" src="img/tshirt2.jpg">
+                </div>
+                <div class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto">
+                    <a href=".">
+                        <img class="card-img m-0 p-0" src="img/tshirt2.jpg">
+                    </a>
+                    <div class="container d-none sizeOptions">
+                        <div class="row">
+                            select a size
+                        </div>
+                        <div class="row">
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">S</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">M</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">L</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">XL</h6>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="card-body text-center text-secondary m-1 p-0">
                         <div class="text-center row-50px away">
                             <h5 class="">Design Name</h5>
                             <p class="">Rs. 300</p>
                         </div>
                         <div class="text-center row-50px over">
-                            <button class="btn btn-dark ">Add to Bag</button>
+                            <div class="btn btn-dark" onclick="showSizeOptions($(this))">Add to Bag</div>
                             <p class="">Sizes: S, M, XL</p>
                         </div>
                     </div>
-                </a>
-                <a class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto" href=".">
-                    <img class="card-img m-0 p-0" src="img/tshirt2.jpg">
+                </div>
+                <div class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto">
+                    <a href=".">
+                        <img class="card-img m-0 p-0" src="img/tshirt2.jpg">
+                    </a>
+                    <div class="container d-none sizeOptions">
+                        <div class="row">
+                            select a size
+                        </div>
+                        <div class="row">
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">S</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">M</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">L</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">XL</h6>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="card-body text-center text-secondary m-1 p-0">
                         <div class="text-center row-50px away">
                             <h5 class="">Design Name</h5>
                             <p class="">Rs. 300</p>
                         </div>
                         <div class="text-center row-50px over">
-                            <button class="btn btn-dark ">Add to Bag</button>
+                            <div class="btn btn-dark" onclick="showSizeOptions($(this))">Add to Bag</div>
                             <p class="">Sizes: S, M, XL</p>
                         </div>
                     </div>
-                </a>
-                <a class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto" href=".">
-                    <img class="card-img m-0 p-0" src="http://via.placeholder.com/600x800">
+                </div>
+                <div class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto">
+                    <a href=".">
+                        <img class="card-img m-0 p-0" src="img/tshirt2.jpg">
+                    </a>
+                    <div class="container d-none sizeOptions">
+                        <div class="row">
+                            select a size
+                        </div>
+                        <div class="row">
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">S</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">M</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">L</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">XL</h6>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="card-body text-center text-secondary m-1 p-0">
                         <div class="text-center row-50px away">
                             <h5 class="">Design Name</h5>
                             <p class="">Rs. 300</p>
                         </div>
                         <div class="text-center row-50px over">
-                            <button class="btn btn-dark ">Add to Bag</button>
+                            <div class="btn btn-dark" onclick="showSizeOptions($(this))">Add to Bag</div>
                             <p class="">Sizes: S, M, XL</p>
                         </div>
                     </div>
-                </a>
-                <a class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto" href=".">
-                    <img class="card-img m-0 p-0" src="http://via.placeholder.com/600x800">
+                </div>
+                <div class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto">
+                    <a href=".">
+                        <img class="card-img m-0 p-0" src="img/tshirt2.jpg">
+                    </a>
+                    <div class="container d-none sizeOptions">
+                        <div class="row">
+                            select a size
+                        </div>
+                        <div class="row">
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">S</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">M</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">L</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">XL</h6>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="card-body text-center text-secondary m-1 p-0">
                         <div class="text-center row-50px away">
                             <h5 class="">Design Name</h5>
                             <p class="">Rs. 300</p>
                         </div>
                         <div class="text-center row-50px over">
-                            <button class="btn btn-dark ">Add to Bag</button>
+                            <div class="btn btn-dark" onclick="showSizeOptions($(this))">Add to Bag</div>
                             <p class="">Sizes: S, M, XL</p>
                         </div>
                     </div>
-                </a>
-                <a class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto" href=".">
-                    <img class="card-img m-0 p-0" src="http://via.placeholder.com/600x800">
+                </div>
+                <div class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto">
+                    <a href=".">
+                        <img class="card-img m-0 p-0" src="img/tshirt2.jpg">
+                    </a>
+                    <div class="container d-none sizeOptions">
+                        <div class="row">
+                            select a size
+                        </div>
+                        <div class="row">
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">S</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">M</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">L</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">XL</h6>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="card-body text-center text-secondary m-1 p-0">
                         <div class="text-center row-50px away">
                             <h5 class="">Design Name</h5>
                             <p class="">Rs. 300</p>
                         </div>
                         <div class="text-center row-50px over">
-                            <button class="btn btn-dark ">Add to Bag</button>
+                            <div class="btn btn-dark" onclick="showSizeOptions($(this))">Add to Bag</div>
                             <p class="">Sizes: S, M, XL</p>
                         </div>
                     </div>
-                </a>
-                <a class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto" href=".">
-                    <img class="card-img m-0 p-0" src="http://via.placeholder.com/600x800">
+                </div>
+                <div class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto">
+                    <a href=".">
+                        <img class="card-img m-0 p-0" src="img/tshirt2.jpg">
+                    </a>
+                    <div class="container d-none sizeOptions">
+                        <div class="row">
+                            select a size
+                        </div>
+                        <div class="row">
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">S</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">M</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">L</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">XL</h6>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="card-body text-center text-secondary m-1 p-0">
                         <div class="text-center row-50px away">
                             <h5 class="">Design Name</h5>
                             <p class="">Rs. 300</p>
                         </div>
                         <div class="text-center row-50px over">
-                            <button class="btn btn-dark ">Add to Bag</button>
+                            <div class="btn btn-dark" onclick="showSizeOptions($(this))">Add to Bag</div>
                             <p class="">Sizes: S, M, XL</p>
                         </div>
                     </div>
-                </a>
-                <a class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto" href=".">
-                    <img class="card-img m-0 p-0" src="http://via.placeholder.com/600x800">
+                </div>
+                <div class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto">
+                    <a href=".">
+                        <img class="card-img m-0 p-0" src="img/tshirt2.jpg">
+                    </a>
+                    <div class="container d-none sizeOptions">
+                        <div class="row">
+                            select a size
+                        </div>
+                        <div class="row">
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">S</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">M</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">L</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">XL</h6>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="card-body text-center text-secondary m-1 p-0">
                         <div class="text-center row-50px away">
                             <h5 class="">Design Name</h5>
                             <p class="">Rs. 300</p>
                         </div>
                         <div class="text-center row-50px over">
-                            <button class="btn btn-dark ">Add to Bag</button>
+                            <div class="btn btn-dark" onclick="showSizeOptions($(this))">Add to Bag</div>
                             <p class="">Sizes: S, M, XL</p>
                         </div>
                     </div>
-                </a>
-                <a class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto" href=".">
-                    <img class="card-img m-0 p-0" src="http://via.placeholder.com/600x800">
+                </div>
+                <div class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto">
+                    <a href=".">
+                        <img class="card-img m-0 p-0" src="img/tshirt2.jpg">
+                    </a>
+                    <div class="container d-none sizeOptions">
+                        <div class="row">
+                            select a size
+                        </div>
+                        <div class="row">
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">S</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">M</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">L</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">XL</h6>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="card-body text-center text-secondary m-1 p-0">
                         <div class="text-center row-50px away">
                             <h5 class="">Design Name</h5>
                             <p class="">Rs. 300</p>
                         </div>
                         <div class="text-center row-50px over">
-                            <button class="btn btn-dark ">Add to Bag</button>
+                            <div class="btn btn-dark" onclick="showSizeOptions($(this))">Add to Bag</div>
                             <p class="">Sizes: S, M, XL</p>
                         </div>
                     </div>
-                </a>
-                <a class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto" href=".">
-                    <img class="card-img m-0 p-0" src="http://via.placeholder.com/600x800">
+                </div>
+                <div class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto">
+                    <a href=".">
+                        <img class="card-img m-0 p-0" src="img/tshirt2.jpg">
+                    </a>
+                    <div class="container d-none sizeOptions">
+                        <div class="row">
+                            select a size
+                        </div>
+                        <div class="row">
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">S</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">M</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">L</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">XL</h6>
+                            </div>
+                        </div>
+
+                    </div>
                     <div class="card-body text-center text-secondary m-1 p-0">
                         <div class="text-center row-50px away">
                             <h5 class="">Design Name</h5>
                             <p class="">Rs. 300</p>
                         </div>
                         <div class="text-center row-50px over">
-                            <button class="btn btn-dark ">Add to Bag</button>
+                            <div class="btn btn-dark" onclick="showSizeOptions($(this))">Add to Bag</div>
                             <p class="">Sizes: S, M, XL</p>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
     </div>
