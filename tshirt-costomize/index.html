@@ -10,16 +10,18 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery.ui.all.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="floating_icon.css">
-    <!-- animate.min.css for Bootstrap Modals -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <!-- animate.min.css for Bootstrap Modals -->
     <title>Title</title>
 </head>
 <body>
 
 <div class="container-fluid">
-    <input type="file" id="img_input_front" onchange="addImage(true)">
-    <input type="file" id="img_input_back" onchange="addImage(false)">
+    <!--Hardcoded to current local server-->
+    <form id="design_form" action="http://localhost:5252/designs" method="post" enctype="multipart/form-data">
+        <!--Inputs are pushed via javascript-->
+        <span id="front_input_container"></span>
+        <span id="rare_input_container"></span>
+        <input type="text" name="designAttributes" id="json_inp">
+    </form>
     <button class="btn btn-primary" id="frontViewBtn">front</button>
     <button class="btn btn-primary" id="backViewBtn"> back</button>
 
@@ -30,7 +32,7 @@
     <label for="font_size_input">Font Size:</label>
     <input id="font_size_input" type="text">
     <button id="add_text_btn_front" class="btn btn-primary" onclick="addText(true)">Add Text</button>
-    <button id="add_text_btn_back" class="btn btn-primary" onclick="addText(false)">Add Text</button>
+    <button id="add_text_btn_rare" class="btn btn-primary" onclick="addText(false)">Add Text</button>
 
     <div id="colour-picker">
         <button class="btn m-1" id="white-btn">white</button>
@@ -50,40 +52,10 @@
         Price : 299
     </div>
 
-    <!--CB-modal -->
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary mx-2" id="launch_modal" data-toggle="modal"
-            data-target="#modal_save_design" onclick="GetDataForModal()">
-        Save Design
-    </button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="modal_save_design" tabindex="-1" role="dialog" aria-labelledby="modal_label_save"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modal_label_save">Save Design</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="modal_body_save">
-                    object we got is visible in console
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save Private</button>
-                    <button type="button" class="btn btn-primary">Save Public</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <button id="save_btn" class="btn btn-primary" onclick="saveDesign()">Save Design</button>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
     <script src="change_tshirt_color.js"></script>
     <script src="imageAndTextProcessing.js"></script>
     <script src="save_design.js"></script>

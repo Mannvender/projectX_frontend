@@ -12,28 +12,19 @@ let blackBtn = $('#black-btn');
 let yellowBtn = $('#yellow-btn');
 let greyBtn = $('#grey-btn');
 
-$('#img_input_back').hide();
-$('#design_area_back').hide();
-$('#add_text_btn_back').hide();
+let frontStuffs = $('#design_area_front').add('#add_text_btn_front').add('#front_input_container');
+let rareStuffs = $('#design_area_back').add('#add_text_btn_rare').add('#rare_input_container');
 
 frontViewBtn.click(() => {
     transparentImage.attr('src', './img/tshirt_front.png');
-    $('#img_input_back').hide();
-    $('#design_area_back').hide();
-    $('#add_text_btn_back').hide();
-    $('#img_input_front').show();
-    $('#design_area_front').show();
-    $('#add_text_btn_front').show();
+    rareStuffs.hide();
+    frontStuffs.show();
 });
 
 backViewBtn.click(() => {
     transparentImage.attr('src', './img/tshirt_back.png');
-    $('#img_input_front').hide();
-    $('#design_area_front').hide();
-    $('#add_text_btn_front').hide();
-    $('#img_input_back').show();
-    $('#design_area_back').show();
-    $('#add_text_btn_back').show();
+    frontStuffs.hide();
+    rareStuffs.show();
 });
 
 whiteBtn.click(() => {
@@ -57,3 +48,5 @@ yellowBtn.click(() => {
 greyBtn.click(() => {
     tshirtBlock.css('background-color', 'grey');
 });
+
+rareStuffs.hide();

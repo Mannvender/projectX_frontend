@@ -1,38 +1,47 @@
-let DesignAttributes = {
-    colour: "",
-    price: "",
-    // images object will contain each image as a object with - original image, size, top, left
-    images: {},
-};
+// TODO: Send userID
+let designAttributes = {};
+let images = [];
+let texts = [];
 
-function GetDataForModal() {
-    DesignAttributes.colour = $("#tshirt_block").css("background-color");
-    DesignAttributes.price = cost;
+function saveDesign() {
+    designAttributes.tshirtColor = $('#tshirt_block').css('background-color');
 
-    $(".image").each((index, obj) => {
-        let imageObject = {};
-        imageObject.url = obj.style.backgroundImage;
-        if (!isNaN(obj.style.top)) {
-            imageObject.top = '0px';
-        } else {
-            imageObject.top = obj.style.top;
-        }
-        if (!isNaN(obj.style.left)) {
-            imageObject.left = '0px';
-        } else {
-            imageObject.left = obj.style.left;
-        }
-        if (!isNaN(obj.style.height)) {
-            imageObject.height = '117px';
-        } else {
-            imageObject.height = obj.style.height;
-        }
-        if (!isNaN(obj.style.width)) {
-            imageObject.width = '208px';
-        } else {
-            imageObject.width = obj.style.width;
-        }
-        DesignAttributes.images["image_" + index] = imageObject;
+    $('.image').each((index, element) => {
+        let jqElement = $(element);
+        let imageDetails = {};
+
+        imageDetails.height = jqElement.css('height');
+        imageDetails.width = jqElement.css('width');
+        imageDetails.top = jqElement.css('top');
+        imageDetails.left = jqElement.css('left');
+        imageDetails.isFront = jqElement.parent().attr('id') === 'design_area_front';
+
+        images.push(imageDetails);
     });
-    console.log(DesignAttributes);
+
+    $('.text').each((index, element) => {
+        let jqElement = $(element);
+        let textDetails = {};
+
+        textDetails.content = jqElement.text().replace(/\W/g, '');
+        textDetails.fontSize = jqElement.css('font-size');
+        // textDetails.fontFamily = jqElement.css('font-family');
+        textDetails.color = jqElement.css('color');
+        textDetails.top = jqElement.css('top');
+        textDetails.left = jqElement.css('left');
+        textDetails.isFront = jqElement.parent().attr('id') === 'design_area_front';
+
+        texts.push(textDetails);
+    });
+
+    designAttributes.images = images;
+    designAttributes.texts = texts;
+
+    let designAttributesInJson = JSON.stringify(designAttributes);
+    $('#json_inp').val(designAttributesInJson);
+
+    document.getElementById('design_form').submit();
 }
+
+
+
