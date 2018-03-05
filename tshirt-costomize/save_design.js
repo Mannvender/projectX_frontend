@@ -3,7 +3,7 @@ let designAttributes = {};
 let images = [];
 let texts = [];
 
-function saveDesign() {
+function sendDesign() {
     designAttributes.tshirtColor = $('#tshirt_block').css('background-color');
 
     $('.image').each((index, element) => {

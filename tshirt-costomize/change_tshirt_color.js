@@ -13,18 +13,18 @@ let yellowBtn = $('#yellow-btn');
 let greyBtn = $('#grey-btn');
 
 let frontStuffs = $('#design_area_front').add('#add_text_btn_front').add('#front_input_container');
-let rareStuffs = $('#design_area_back').add('#add_text_btn_rare').add('#rare_input_container');
+let rearStuffs = $('#design_area_back').add('#add_text_btn_rare').add('#rare_input_container');
 
 frontViewBtn.click(() => {
     transparentImage.attr('src', './img/tshirt_front.png');
-    rareStuffs.hide();
+    rearStuffs.hide();
     frontStuffs.show();
 });
 
 backViewBtn.click(() => {
     transparentImage.attr('src', './img/tshirt_back.png');
     frontStuffs.hide();
-    rareStuffs.show();
+    rearStuffs.show();
 });
 
 whiteBtn.click(() => {
@@ -49,4 +49,4 @@ greyBtn.click(() => {
     tshirtBlock.css('background-color', 'grey');
 });
 
-rareStuffs.hide();
+rearStuffs.hide();

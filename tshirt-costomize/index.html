@@ -17,7 +17,6 @@
 <div class="container-fluid">
     <!--Hardcoded to current local server-->
     <form id="design_form" action="http://localhost:5252/designs" method="post" enctype="multipart/form-data">
-        <!--Inputs are pushed via javascript-->
         <span id="front_input_container"></span>
         <span id="rare_input_container"></span>
         <input type="text" name="designAttributes" id="json_inp">
@@ -52,7 +51,7 @@
         Price : 299
     </div>
 
-    <button id="save_btn" class="btn btn-primary" onclick="saveDesign()">Save Design</button>
+    <button id="save_btn" class="btn btn-primary" onclick="sendDesign()">Send Design</button>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>

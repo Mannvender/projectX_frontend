@@ -32,3 +32,15 @@ $(function () {
         }
     });
 });
+
+$('#carousel_wrapper').slick({
+    accessibility: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    infinite: true,
+    arrows: true,
+    pauseOnHover: false,
+    speed: 500,
+    fade: true,
+    cssEase: 'linear'
+});
