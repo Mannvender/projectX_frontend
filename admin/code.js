@@ -34,6 +34,6 @@ function renderShirts(data) {
             designArea.append(image);
         });
         teaserBlock.append(designArea);
-        designsWrapper.append(teaserBlock);
+        designsWrapper.append(teaserBlock)
     });
 }
