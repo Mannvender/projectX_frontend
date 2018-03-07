@@ -6,7 +6,7 @@ window.addEventListener('load', dramaticEntrance);
 // To understand this function watch- https://www.youtube.com/watch?v=CBQGl6zokMs
 // Get animation names from https://daneden.github.io/animate.css/
 $.fn.extend({
-    intro: function (animationName, delay) {
+    leftAndRight: function (animationName, delay) {
         let objectBeingAnimated = $(this);
         if (objectBeingAnimated.hasClass('hidden')) {
             if (delay) {
@@ -60,7 +60,7 @@ function dramaticEntrance(introAnimation) {
         let isvisible = amountOfPageSeen > elementPosition + elementHeight;
 
         if (isvisible) {
-            setTimeout(() => $(element).intro(elementAnimation), 100); // Hard coded
+            setTimeout(() => $(element).leftAndRight(elementAnimation), 100); // Hard coded
             /* It is important to change class after the loop is iterated otherwise it somehow
              * messes up the DOM structure */
         }
