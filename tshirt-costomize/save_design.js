@@ -48,6 +48,7 @@ function sendDesign() {
     $('#owner_inp').val($('#designOwner').val());
     $('#catagory_inp').val($('#designType').val());
     $('#color_inp').val(color);
+    $('#json_inp').val(designAttributesInJson);
 
     document.getElementById('design_form').submit();
 }

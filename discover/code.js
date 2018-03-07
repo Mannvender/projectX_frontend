@@ -78,3 +78,104 @@ function showSizeOptions(button) {
     img.css({'-webkit-filter-': 'blur(5px)', 'filter': 'blur(5px)'});
     sizeOptions.removeClass("d-none").addClass("d-inline");
 }
+
+// ==== AJAX calls =====
+let designHolder = $('#designHolder');
+let searchTitle = $('#searchTitle');
+designHolder.empty();
+let topWear = 0;
+let sex = 'male';
+let designCatagory = 1;
+getDesigns(topWear, sex, designCatagory);
+
+function objCountUpdate(newCount) {
+    let Holder = $('#numItems');
+    Holder.empty();
+    Holder.append(newCount + ' Items')
+}
+
+function searchTitleUpdate(topWear, sex, designCatagory) {
+    let newTitle = '';
+    if (topWear == 0) {
+        newTitle += 'Tshirts'
+    } else if (topWear == 1) {
+        newTitle += 'Vnecks'
+    } else if (topWear == 2) {
+        newTitle += 'Hoodies'
+    } else {
+        newTitle += 'Everything'
+    }
+
+    newTitle += ' For ';
+
+    if (sex == 'male') {
+        newTitle += 'Men'
+    } else if (sex == 'female') {
+        newTitle += 'Women'
+    } else {
+        newTitle += 'Both'
+    }
+
+    searchTitle.empty();
+    searchTitle.append(newTitle);
+}
+
+$('#catagoryRadio input').on('change', function () {
+    topWear = $('input[name=categories]:checked', '#catagoryRadio').val();
+    designHolder.empty();
+    getDesigns(topWear, sex, designCatagory);
+});
+
+$('#genderRadio input').on('change', function () {
+    sex = $('input[name=gender]:checked', '#genderRadio').val();
+    designHolder.empty();
+    getDesigns(topWear, sex, designCatagory);
+});
+
+$('#themeRadio input').on('change', function () {
+    designCatagory = $('input[name=themes]:checked', '#themeRadio').val();
+    designHolder.empty();
+    getDesigns(topWear, sex, designCatagory);
+});
+
+
+function getDesigns(topWear, sex, designCatagory) {
+    searchTitleUpdate(topWear, sex, designCatagory);
+    $.ajax({
+        url: 'http://localhost:5252/designs/custom?topWear=' + topWear + '&sex=' + sex + '&designCatagory=' + designCatagory,
+        method: 'GET',
+        success: renderShirts
+    });
+}
+
+
+function renderShirts(data) {
+    objCountUpdate(data.count);
+    data.rows.forEach(design => {
+        let teaserBlock = $(`<div class="teaser-block">
+        <img class="teaser-img" src="../img/tshirt_front.png" alt="">
+    </div>`);
+
+
+        let designArea = $('<div class="design-area"></div>');
+
+        let designAttributes = JSON.parse(design.designAttributes);
+
+        console.log(designAttributes.images);
+
+        designAttributes.images.forEach(element => {
+            let image = $(`<img src="http://localhost:5252/images/${element.name}">`);
+            image.css({
+                'height': (parseInt(element.height) / 2) + 'px',
+                'width': (parseInt(element.width) / 2) + 'px',
+                'position': 'absolute',
+                'top': (parseInt(element.top) / 2) + 'px',
+                'left': (parseInt(element.left) / 2) + 'px'
+            });
+
+            designArea.append(image);
+        });
+        teaserBlock.append(designArea);
+        designHolder.append(teaserBlock);
+    });
+}

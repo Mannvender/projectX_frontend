@@ -88,32 +88,32 @@
     <div class="col-12 col-md-3 mt-5 ">
         <div class="row">
             <div class="col-4 col-md-12 mt-md-5 ml-md-5 pl-md-5">
-                <fieldset class="form-group">
+                <fieldset class="form-group" id="catagoryRadio">
                     <h5 class="">CATEGORIES</h5>
                     <div class="form-check radio radio-primary">
                         <input class="form-check-input" type="radio" name="categories" id="gridRadios1"
-                               value="option1" checked>
+                               value="0" checked>
                         <label class="form-check-label" for="gridRadios1">
                             T-shirts
                         </label>
                     </div>
                     <div class="form-check radio radio-primary">
                         <input class="form-check-input" type="radio" name="categories" id="gridRadios2"
-                               value="option2">
+                               value="1">
                         <label class="form-check-label" for="gridRadios2">
                             V-Neck
                         </label>
                     </div>
                     <div class="form-check radio radio-primary">
                         <input class="form-check-input" type="radio" name="categories" id="gridRadios10"
-                               value="option3">
+                               value="2">
                         <label class="form-check-label" for="gridRadios10">
                             Hoodies
                         </label>
                     </div>
                     <div class="form-check radio radio-primary">
                         <input class="form-check-input" type="radio" name="categories" id="gridRadios11"
-                               value="option3">
+                               value="3">
                         <label class="form-check-label" for="gridRadios11">
                             All
                         </label>
@@ -121,25 +121,25 @@
                 </fieldset>
             </div>
             <div class="col-4 col-md-12 ml-md-5 pl-md-5">
-                <fieldset class="form-group">
+                <fieldset class="form-group" id="genderRadio">
                     <h5 class="">GENDER</h5>
                     <div class="form-check radio radio-primary">
                         <input class="form-check-input" type="radio" name="gender" id="gridRadios4"
-                               value="option1" checked>
+                               value="male" checked>
                         <label class="form-check-label" for="gridRadios4">
                             Male
                         </label>
                     </div>
                     <div class="form-check radio radio-primary">
                         <input class="form-check-input" type="radio" name="gender" id="gridRadios5"
-                               value="option2">
+                               value="female">
                         <label class="form-check-label" for="gridRadios5">
                             Female
                         </label>
                     </div>
                     <div class="form-check radio radio-primary">
                         <input class="form-check-input" type="radio" name="gender" id="gridRadios6"
-                               value="option3">
+                               value="uni">
                         <label class="form-check-label" for="gridRadios6">
                             Unisex
                         </label>
@@ -147,7 +147,7 @@
                 </fieldset>
             </div>
             <div class="col-4 col-md-12 ml-md-5 pl-md-5">
-                <fieldset class="form-group">
+                <fieldset class="form-group" id="themeRadio">
                     <h5 class="">THEMES</h5>
                     <div class="form-check radio radio-primary">
                         <input class="form-check-input" type="radio" name="themes" id="gridRadios9"
@@ -247,6 +247,13 @@
                             Abstract
                         </label>
                     </div>
+                    <div class="form-check radio radio-primary">
+                        <input class="form-check-input" type="radio" name="themes" id="gridRadios27"
+                               value="15">
+                        <label class="form-check-label" for="gridRadios27">
+                            Other
+                        </label>
+                    </div>
                 </fieldset>
             </div>
         </div>
@@ -254,10 +261,10 @@
     <div class="col-12 col-md-9">
         <div class="container" id="items">
             <div class="row my-2">
-                <h1 class="col mt-5">Tshirts For Men</h1>
-                <span class="col mt-5 align-self-center text-secondary">200 Items</span>
+                <h1 class="col mt-5" id="searchTitle">Tshirts For Men</h1>
+                <span class="col mt-5 align-self-center text-secondary" id="numItems">0 Items</span>
             </div>
-            <div class="row mt-2">
+            <div class="row mt-2" id="designHolder">
                 <div class="card col-12 col-sm-6 col-md-3 mb-5 products mx-auto">
                     <a href=".">
                         <img class="card-img m-0 p-0" src="img/tshirt2.jpg">
