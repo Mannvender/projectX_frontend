@@ -156,26 +156,79 @@ function renderShirts(data) {
         <img class="teaser-img" src="../img/tshirt_front.png" alt="">
     </div>`);
 
-
         let designArea = $('<div class="design-area"></div>');
+        let card = $(`<div class="teaser-block card col-12 col-sm-6 col-md-3 mb-5 products mx-auto"></div>`);
+        let link = $(`<a href="."></a>`);
+        let cardImg = $(`<img class="card-img m-0 p-0 teaser-img" src="../img/tshirt_front.png" style="background-color: ${design.color}">`);
+        let sizeOptions = $(`<div class="container d-none sizeOptions">
+                        <div class="row">
+                            select a size
+                        </div>
+                        <div class="row">
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">S</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">M</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">L</h6>
+                            </div>
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                                <h6 class="circleText">XL</h6>
+                            </div>
+                        </div>
 
+                    </div>`);
+        let cardBody = $(`<div class="card-body text-center text-secondary m-1 p-0">
+                        
+                    </div>`);
+        let NameNPriceHolder = $(`<div class="text-center row-50px away"></div>`);
+        let Name = $(`<h5 class="">${design.designName}</h5>`);
+        let Price = $(`<p class="">Rs. ${design.designPrice}</p>`);
+
+        let AddToBagBtn = $(`<div class="text-center row-50px over">
+                            <div class="btn btn-dark" onclick="showSizeOptions($(this))">Add to Bag</div>
+                            <p class="">Sizes: S, M, L, XL</p>
+                        </div>`);
+
+        link.append(cardImg);
         let designAttributes = JSON.parse(design.designAttributes);
 
-        console.log(designAttributes.images);
-
         designAttributes.images.forEach(element => {
-            let image = $(`<img src="http://localhost:5252/images/${element.name}">`);
-            image.css({
-                'height': (parseInt(element.height) / 2) + 'px',
-                'width': (parseInt(element.width) / 2) + 'px',
-                'position': 'absolute',
-                'top': (parseInt(element.top) / 2) + 'px',
-                'left': (parseInt(element.left) / 2) + 'px'
-            });
+            if (element.isFront) {
+                let image = $(`<img src="http://localhost:5252/images/${element.name}">`);
+                image.css({
+                    'height': (parseInt(element.height) / 2.25) + 'px',
+                    'width': (parseInt(element.width) / 2.25) + 'px',
+                    'position': 'absolute',
+                    'top': (parseInt(element.top) / 2.25) + 'px',
+                    'left': (parseInt(element.left) / 2.25) + 'px'
+                });
 
-            designArea.append(image);
+                designArea.append(image);
+            }
         });
-        teaserBlock.append(designArea);
-        designHolder.append(teaserBlock);
+        designAttributes.texts.forEach(element => {
+            if (element.isFront) {
+                let text = $(`<p style="font-size: ${element.fontSize}px; color: ${element.color}">${element.content}</p>`);
+                text.css({
+                    'position': 'absolute',
+                    'top': (parseInt(element.top) / 2.25) + 'px',
+                    'left': (parseInt(element.left) / 2.25) + 'px'
+                });
+
+                designArea.append(text);
+            }
+        });
+        link.append(designArea);
+        card.append(link);
+        card.append(sizeOptions);
+        NameNPriceHolder.append(Name);
+        NameNPriceHolder.append(Price);
+        cardBody.append(NameNPriceHolder);
+        cardBody.append(AddToBagBtn);
+        card.append(cardBody);
+        designHolder.append(card);
     });
 }
