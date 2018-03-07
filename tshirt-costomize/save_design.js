@@ -1,10 +1,13 @@
 // TODO: Send userID
 let designAttributes = {};
+let sex = 'male';
+let topWear = 0;
 let images = [];
 let texts = [];
 
+
 function sendDesign() {
-    designAttributes.tshirtColor = $('#tshirt_block').css('background-color');
+    // designAttributes.tshirtColor = $('#tshirt_block').css('background-color');
 
     $('.image').each((index, element) => {
         let jqElement = $(element);
@@ -34,10 +37,17 @@ function sendDesign() {
         texts.push(textDetails);
     });
 
+    let color = $('#tshirt_block').css('background-color');
     designAttributes.images = images;
     designAttributes.texts = texts;
-
     let designAttributesInJson = JSON.stringify(designAttributes);
+    $('#price_inp').val(cost);
+    $('#sex_inp').val(sex);
+    $('#topWear_inp').val(topWear);
+    $('#name_inp').val($('#designName').val());
+    $('#owner_inp').val($('#designOwner').val());
+    $('#catagory_inp').val($('#designType').val());
+    $('#color_inp').val(color);
     $('#json_inp').val(designAttributesInJson);
 
     document.getElementById('design_form').submit();

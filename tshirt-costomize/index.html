@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,57 +8,149 @@
     <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery.ui.all.css">
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="floating_icon.css">
-    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
 </head>
 <body>
+<div class="container-fluid d-none d-md-block" id="temp-bar">
+    <div class="hexagon d-none d-md-block"><span></span></div>
+    <img class="d-none d-md-block" id="logo" src="img/k_final.png">
+    <h3 class="font-weight-bold mx-3" id="company-name">KELVISH</h3>
+    <h4 class="row justify-content-center d-none d-lg-block" id="some-text">Design ---- Save ---- Order</h4>
+</div>
+<div class="container d-block d-md-none">
+    <p class="display-2 text-center">KELVISH</p>
+</div>
+<div class="container-fluid row">
+    <div class="col-12 col-md-6 mt-5 p-md-5">
+        <!--Hardcoded to current local server-->
+        <form class="my-1" id="design_form" action="http://localhost:5252/designs" method="post"
+              enctype="multipart/form-data">
+            <span id="front_input_container"></span>
+            <span id="rare_input_container"></span>
+            <input class="" type="text" name="designAttributes" id="json_inp">
+            <input class="" type="hidden" name="sex" id="sex_inp">
+            <input class="" type="hidden" name="designOwner" id="owner_inp">
+            <input class="" type="hidden" name="designName" id="name_inp">
+            <input class="" type="hidden" name="designCatagory" id="catagory_inp">
+            <input class="" type="hidden" name="topWear" id="topWear_inp">
+            <input class="" type="hidden" name="designPrice" id="price_inp">
+            <input class="" type="hidden" name="color" id="color_inp">
+        </form>
+        <button class="btn btn-primary my-1" id="frontViewBtn">front</button>
+        <button class="btn btn-primary my-1" id="backViewBtn"> back</button>
+        <br>
 
-<div class="container-fluid">
-    <!--Hardcoded to current local server-->
-    <form id="design_form" action="http://localhost:5252/designs" method="post" enctype="multipart/form-data">
-        <span id="front_input_container"></span>
-        <span id="rare_input_container"></span>
-        <input type="text" name="designAttributes" id="json_inp">
-    </form>
-    <button class="btn btn-primary" id="frontViewBtn">front</button>
-    <button class="btn btn-primary" id="backViewBtn"> back</button>
+        <label for="text_input">Text:</label>
+        <input class="my-1" id="text_input" type="text">
+        <label for="font_size_input">Font Size:</label>
+        <input class="my-1" id="font_size_input" type="text">
+        <button id="add_text_btn_front" class="btn btn-primary" onclick="addText(true)">Add Text</button>
+        <button id="add_text_btn_rare" class="btn btn-primary" onclick="addText(false)">Add Text</button>
 
-    <br>
+        <div id="colour-picker">
+            <button class="btn m-1" id="white-btn">white</button>
+            <button class="btn btn-danger m-1" id="red-btn">red</button>
+            <button class="btn m-1" id="green-btn">green</button>
+            <button class="btn btn-secondary m-1" id="grey-btn">grey</button>
+            <button class="btn btn-primary m-1" id="blue-btn"> blue</button>
+            <button class="btn btn-dark m-1" id="black-btn">black</button>
+            <button class="btn btn-warning m-1" id="yellow-btn">yellow</button>
+        </div>
 
-    <label for="text_input">Text:</label>
-    <input id="text_input" type="text">
-    <label for="font_size_input">Font Size:</label>
-    <input id="font_size_input" type="text">
-    <button id="add_text_btn_front" class="btn btn-primary" onclick="addText(true)">Add Text</button>
-    <button id="add_text_btn_rare" class="btn btn-primary" onclick="addText(false)">Add Text</button>
+        <div class="h3 m-1 row" id="cost_div">
+            Price : 299
+        </div>
 
-    <div id="colour-picker">
-        <button class="btn m-1" id="white-btn">white</button>
-        <button class="btn btn-danger m-1" id="red-btn">red</button>
-        <button class="btn m-1" id="green-btn">green</button>
-        <button class="btn btn-secondary m-1" id="grey-btn">grey</button>
-        <button class="btn btn-primary m-1" id="blue-btn"> blue</button>
-        <button class="btn btn-dark m-1" id="black-btn">black</button>
-        <button class="btn btn-warning m-1" id="yellow-btn">yellow</button>
+        <span class="d-block m-1">
+            <label for="designName" class="">Design name:</label>
+            <input class="" id="designName" type="text">
+        </span>
+
+        <!--later the lower block will be replaced with userName from cookie-->
+        <span class="d-block m-1">
+            <label for="designOwner" class="">Design owner:</label>
+            <input class="" id="designOwner" type="text">
+        </span>
+
+        <div class="m-1">
+            <label class="control-label" for="designType">Choose Design Category:</label>
+            <div class="">
+                <select id="designType" class="form-control">
+                    <option value="2">SuperHeroes</option>
+                    <option value="3">Film/TV</option>
+                    <option value="4">Cartoons/Comics</option>
+                    <option value="5">Funny</option>
+                    <option value="6">Music</option>
+                    <option value="7">Sports</option>
+                    <option value="8">Animal</option>
+                    <option value="9">Desi</option>
+                    <option value="10">Girls/Boys Power</option>
+                    <option value="11">Food</option>
+                    <option value="12">Quotes</option>
+                    <option value="13">Gaming/Geek</option>
+                    <option value="14">Abstract</option>
+                    <option value="15">Other</option>
+                </select>
+            </div>
+        </div>
+
+        <button id="save_btn" class="btn btn-primary row m-1 mt-4 d-block" onclick="sendDesign()">Send Design</button>
     </div>
-    <div id="tshirt_block">
-        <img id="transparent_image" src="./img/tshirt_front.png">
-        <div class="design-area" id="design_area_front"></div>
-        <div class="design-area" id="design_area_back"></div>
-    </div>
-    <div class="h3" id="cost_div">
-        Price : 299
-    </div>
+    <div class="col-12 col-md-6">
+        <div id="tshirt_block">
+            <img id="transparent_image" src="./img/tshirt_front.png">
+            <div class="design-area" id="design_area_front"></div>
+            <div class="design-area" id="design_area_back"></div>
+        </div>
 
-    <button id="save_btn" class="btn btn-primary" onclick="sendDesign()">Send Design</button>
+    </div>
+</div>
+<a class="" href="javascript:" id="return-to-top"><i class="fas fa-arrow-up"></i></a>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="change_tshirt_color.js"></script>
-    <script src="imageAndTextProcessing.js"></script>
-    <script src="save_design.js"></script>
+<div class="container-fluid text-secondary border_top_light" id="footer">
+    <div class="container my-2">
+        <div class="row my-2">
+            <div class=" col-12 col-md-3 text-center text-md-left">
+                <h6 class="h6 text-dark d-none d-md-block">SECURE SHOPPING</h6>
+                <i class="fas fa-lock fa-2x m-2"></i>
+            </div>
+            <div class="col-7 d-none d-md-block">
+                <h6 class="h6 text-dark">PAYMENT OPTIONS</h6>
+                <i class="far fa-credit-card fa-2x m-2"></i>
+                <i class="fas fa-credit-card fa-2x m-2"></i>
+            </div>
+            <div class="col-2 d-none d-md-block">
+                <a href=".">
+                    <small class="font-weight-bold text-secondary">Need Help? Contact Us</small>
+                </a>
+            </div>
+        </div>
+    </div>
 </div>
 
+<script
+        src="http://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<!--<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>-->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="change_tshirt_color.js"></script>
+<script src="imageAndTextProcessing.js"></script>
+<script src="save_design.js"></script>
 </body>
 </html>
