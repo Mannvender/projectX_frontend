@@ -52,7 +52,7 @@ $('.flaunting-container').each((index, element) => {
         triggerElement: element,
     })
         .setTween(ourTimeline)
-        .addIndicators()
+        // .addIndicators()
         .addTo(controller);
 })
 
