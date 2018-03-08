@@ -1,4 +1,9 @@
 // TODO: Send userID
+let designArea = $('#design_area_front');
+let dAreaWidth = designArea.css('width');
+dAreaWidth = parseInt(dAreaWidth.substr(0, dAreaWidth.length - 2));
+let dAreaHt = designArea.css('height');
+dAreaHt = parseInt(dAreaHt.substr(0, dAreaHt.length - 2));
 let designAttributes = {};
 let sex = 'male';
 let topWear = 0;
@@ -12,11 +17,15 @@ function sendDesign() {
     $('.image').each((index, element) => {
         let jqElement = $(element);
         let imageDetails = {};
-
-        imageDetails.height = jqElement.css('height');
-        imageDetails.width = jqElement.css('width');
-        imageDetails.top = jqElement.css('top');
-        imageDetails.left = jqElement.css('left');
+        // lets send height, width, top, left in %
+        let height = jqElement.css('height');
+        let width = jqElement.css('width');
+        let top = jqElement.css('top');
+        let left = jqElement.css('left');
+        imageDetails.height = (parseInt(height.substr(0, height.length - 2)) / dAreaHt) * 100;
+        imageDetails.width = (parseInt(width.substr(0, width.length - 2)) / dAreaWidth) * 100;
+        imageDetails.top = (parseInt(top.substr(0, top.length - 2)) / dAreaHt) * 100;
+        imageDetails.left = (parseInt(left.substr(0, left.length - 2)) / dAreaWidth) * 100;
         imageDetails.isFront = jqElement.parent().attr('id') === 'design_area_front';
 
         images.push(imageDetails);

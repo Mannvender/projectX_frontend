@@ -198,12 +198,13 @@ function renderShirts(data) {
         designAttributes.images.forEach(element => {
             if (element.isFront) {
                 let image = $(`<img src="http://localhost:5252/images/${element.name}">`);
+                console.log(element.height);
                 image.css({
-                    'height': (parseInt(element.height) / 2.25) + 'px',
-                    'width': (parseInt(element.width) / 2.25) + 'px',
+                    'height': element.height + '%',
+                    'width': element.width + '%',
                     'position': 'absolute',
-                    'top': (parseInt(element.top) / 2.25) + 'px',
-                    'left': (parseInt(element.left) / 2.25) + 'px'
+                    'top': element.top + '%',
+                    'left': element.left + '%'
                 });
 
                 designArea.append(image);

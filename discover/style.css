@@ -536,8 +536,6 @@ a:hover, a:visited, a:link, a:active {
 
 /*teaser blocks*/
 .teaser-block {
-    height: 355px;
-    width: 265px;
     display: inline-block;
     box-shadow: 15px 15px 10px #bbb;
     margin: 20px;
@@ -552,16 +550,14 @@ a:hover, a:visited, a:link, a:active {
 }
 
 .teaser-img {
-    height: 280.297px;
-    width: 235.813px;
 }
 
 .design-area {
-    width: 97.8px;
-    height: 155.57px;
+    width: 41.47%;
+    height: 44.66%;
     position: absolute;
-    top: 48.9px;
-    left: 68.56px;
+    top: 17.44%;
+    left: 29%;
 }
 
 .center {
