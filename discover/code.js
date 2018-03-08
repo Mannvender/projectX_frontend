@@ -75,7 +75,7 @@ function setBackground(circle) {
 function showSizeOptions(button) {
     let img = button.parent().parent().siblings().first();
     let sizeOptions = img.nextAll().eq(0);
-    img.css({'-webkit-filter-': 'blur(5px)', 'filter': 'blur(5px)'});
+    // img.css({'-webkit-filter-': 'blur(5px)', 'filter': 'blur(5px)'});
     sizeOptions.removeClass("d-none").addClass("d-inline");
 }
 
@@ -152,14 +152,13 @@ function getDesigns(topWear, sex, designCatagory) {
 function renderShirts(data) {
     objCountUpdate(data.count);
     data.rows.forEach(design => {
-        let teaserBlock = $(`<div class="teaser-block">
-        <img class="teaser-img" src="../img/tshirt_front.png" alt="">
-    </div>`);
 
-        let designArea = $('<div class="design-area"></div>');
+        let designArea = $('<div class="design-area away"></div>');
+        let designAreaBack = $('<div class="design-area-back over"></div>');
         let card = $(`<div class="teaser-block card col-12 col-sm-6 col-md-3 mb-5 products mx-auto"></div>`);
-        let link = $(`<a href="."></a>`);
-        let cardImg = $(`<img class="card-img m-0 p-0 teaser-img" src="../img/tshirt_front.png" style="background-color: ${design.color}">`);
+        let link = $(`<a href="." class="productImages"></a>`);
+        let cardImg = $(`<img class="card-img m-0 p-0 teaser-img away" src="../img/tshirt_front.png" style="background-color: ${design.color}">`);
+        let cardImgBack = $(`<img class="card-img m-0 p-0 teaser-img over" src="../img/tshirt_back.png" style="background-color: ${design.color}">`);
         let sizeOptions = $(`<div class="container d-none sizeOptions">
                         <div class="row">
                             select a size
@@ -193,6 +192,7 @@ function renderShirts(data) {
                         </div>`);
 
         link.append(cardImg);
+        link.append(cardImgBack);
         let designAttributes = JSON.parse(design.designAttributes);
 
         designAttributes.images.forEach(element => {
@@ -208,21 +208,45 @@ function renderShirts(data) {
                 });
 
                 designArea.append(image);
+            } else {
+                let image = $(`<img src="http://localhost:5252/images/${element.name}">`);
+                console.log(element.height);
+                image.css({
+                    'height': element.height + '%',
+                    'width': element.width + '%',
+                    'position': 'absolute',
+                    'top': element.top + '%',
+                    'left': element.left + '%'
+                });
+
+                designAreaBack.append(image);
             }
         });
         designAttributes.texts.forEach(element => {
+            // temp solution
+            let fontSize = element.fontSize/2;
             if (element.isFront) {
-                let text = $(`<p style="font-size: ${element.fontSize}px; color: ${element.color}">${element.content}</p>`);
+                let text = $(`<p style="font-size: ${fontSize}px; color: ${element.color}">${element.content}</p>`);
                 text.css({
                     'position': 'absolute',
-                    'top': (parseInt(element.top) / 2.25) + 'px',
-                    'left': (parseInt(element.left) / 2.25) + 'px'
+                    'top': element.top + '%',
+                    'left': element.left + '%'
                 });
 
                 designArea.append(text);
+            } else {
+                let text = $(`<p style="font-size: ${fontSize}px; color: ${element.color}">${element.content}</p>`);
+                text.css({
+                    'position': 'absolute',
+                    'top': element.top + '%',
+                    'left': element.left + '%'
+                });
+
+                designAreaBack.append(text);
             }
         });
         link.append(designArea);
+        link.append(designAreaBack);
         card.append(link);
         card.append(sizeOptions);
         NameNPriceHolder.append(Name);

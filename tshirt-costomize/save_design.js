@@ -16,7 +16,7 @@ function sendDesign() {
     $('.image').each((index, element) => {
         let jqElement = $(element);
         let imageDetails = {};
-        // lets send height, width, top, left in %
+        // lets send height, width, top, left, fontSize in %
         let height = jqElement.css('height');
         let width = jqElement.css('width');
         let top = jqElement.css('top');
@@ -33,13 +33,16 @@ function sendDesign() {
     $('.text').each((index, element) => {
         let jqElement = $(element);
         let textDetails = {};
-
+        let top = jqElement.css('top');
+        let left = jqElement.css('left');
+        let fontSize = jqElement.css('font-size');
         textDetails.content = jqElement.text().replace(/\W/g, '');
-        textDetails.fontSize = jqElement.css('font-size');
+        // we need relative or %value of font to make design cards responsive
+        textDetails.fontSize = parseInt(fontSize.substr(0, fontSize.length - 2));
         // textDetails.fontFamily = jqElement.css('font-family');
         textDetails.color = jqElement.css('color');
-        textDetails.top = jqElement.css('top');
-        textDetails.left = jqElement.css('left');
+        textDetails.top = (parseInt(top.substr(0, top.length - 2)) / dAreaHt) * 100;
+        textDetails.left = (parseInt(left.substr(0, left.length - 2)) / dAreaWidth) * 100;
         textDetails.isFront = jqElement.parent().attr('id') === 'design_area_front';
 
         texts.push(textDetails);
