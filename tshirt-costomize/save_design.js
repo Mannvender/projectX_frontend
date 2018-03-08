@@ -5,7 +5,6 @@ dAreaWidth = parseInt(dAreaWidth.substr(0, dAreaWidth.length - 2));
 let dAreaHt = designArea.css('height');
 dAreaHt = parseInt(dAreaHt.substr(0, dAreaHt.length - 2));
 let designAttributes = {};
-let sex = 'male';
 let topWear = 0;
 let images = [];
 let texts = [];
@@ -51,10 +50,6 @@ function sendDesign() {
     designAttributes.texts = texts;
     let designAttributesInJson = JSON.stringify(designAttributes);
     $('#price_inp').val(cost);
-    $('#sex_inp').val(sex);
-    $('#topWear_inp').val(topWear);
-    $('#name_inp').val($('#designName').val());
-    $('#owner_inp').val($('#designOwner').val());
     $('#catagory_inp').val($('#designType').val());
     $('#color_inp').val(color);
     $('#json_inp').val(designAttributesInJson);
