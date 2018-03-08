@@ -33,8 +33,8 @@
             <span id="front_input_container"></span>
             <span id="rare_input_container"></span>
             <input type="hidden" name="designAttributes" id="json_inp">
-            <label class="control-label" for="designType">Choose Design Category:</label>
-            <select id="designType" class="form-control" name="designType">
+            <label class="control-label" for="designCatagory">Choose Design Category:</label>
+            <select id="designCatagory" class="form-control" name="designCatagory">
                 <option value="2">SuperHeroes</option>
                 <option value="3">Film/TV</option>
                 <option value="4">Cartoons/Comics</option>
@@ -58,6 +58,9 @@
                 <option value="1">V-Neck</option>
             </select>
             <input class="" type="hidden" name="color" id="color_inp">
+            <input type="hidden" name="designPrice" id="price_inp">
+            <input type="hidden" name="sex" value="male" id="sex_inp">
+            <input type="hidden" name="designOwner" value="CurrentUser" id="owner_inp">
         </form>
         <button class="btn btn-primary my-1" id="frontViewBtn">front</button>
         <button class="btn btn-primary my-1" id="backViewBtn"> back</button>
