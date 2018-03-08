@@ -32,13 +32,31 @@
               enctype="multipart/form-data">
             <span id="front_input_container"></span>
             <span id="rare_input_container"></span>
-            <input class="" type="text" name="designAttributes" id="json_inp">
-            <input class="" type="hidden" name="sex" id="sex_inp">
-            <input class="" type="hidden" name="designOwner" id="owner_inp">
-            <input class="" type="hidden" name="designName" id="name_inp">
-            <input class="" type="hidden" name="designCatagory" id="catagory_inp">
-            <input class="" type="hidden" name="topWear" id="topWear_inp">
-            <input class="" type="hidden" name="designPrice" id="price_inp">
+            <input type="hidden" name="designAttributes" id="json_inp">
+            <label class="control-label" for="designType">Choose Design Category:</label>
+            <select id="designType" class="form-control" name="designType">
+                <option value="2">SuperHeroes</option>
+                <option value="3">Film/TV</option>
+                <option value="4">Cartoons/Comics</option>
+                <option value="5">Funny</option>
+                <option value="6">Music</option>
+                <option value="7">Sports</option>
+                <option value="8">Animal</option>
+                <option value="9">Desi</option>
+                <option value="10">Girls/Boys Power</option>
+                <option value="11">Food</option>
+                <option value="12">Quotes</option>
+                <option value="13">Gaming/Geek</option>
+                <option value="14">Abstract</option>
+                <option value="15">Other</option>
+            </select>
+            <label for="designName" class="">Design name:</label>
+            <input name="designName" class="form-control" id="designName" type="text">
+            <label for="top_wear">Top Wear:</label>
+            <select type="text" name="topWear" id="top_wear" class="form-control">
+                <option value="0">Round-Neck</option>
+                <option value="1">V-Neck</option>
+            </select>
             <input class="" type="hidden" name="color" id="color_inp">
         </form>
         <button class="btn btn-primary my-1" id="frontViewBtn">front</button>
@@ -64,39 +82,6 @@
 
         <div class="h3 m-1 row" id="cost_div">
             Price : 299
-        </div>
-
-        <span class="d-block m-1">
-            <label for="designName" class="">Design name:</label>
-            <input class="" id="designName" type="text">
-        </span>
-
-        <!--later the lower block will be replaced with userName from cookie-->
-        <span class="d-block m-1">
-            <label for="designOwner" class="">Design owner:</label>
-            <input class="" id="designOwner" type="text">
-        </span>
-
-        <div class="m-1">
-            <label class="control-label" for="designType">Choose Design Category:</label>
-            <div class="">
-                <select id="designType" class="form-control">
-                    <option value="2">SuperHeroes</option>
-                    <option value="3">Film/TV</option>
-                    <option value="4">Cartoons/Comics</option>
-                    <option value="5">Funny</option>
-                    <option value="6">Music</option>
-                    <option value="7">Sports</option>
-                    <option value="8">Animal</option>
-                    <option value="9">Desi</option>
-                    <option value="10">Girls/Boys Power</option>
-                    <option value="11">Food</option>
-                    <option value="12">Quotes</option>
-                    <option value="13">Gaming/Geek</option>
-                    <option value="14">Abstract</option>
-                    <option value="15">Other</option>
-                </select>
-            </div>
         </div>
 
         <button id="save_btn" class="btn btn-primary row m-1 mt-4 d-block" onclick="sendDesign()">Send Design</button>
