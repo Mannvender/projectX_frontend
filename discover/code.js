@@ -1,69 +1,3 @@
-// ===== Hiding and Showing Navbar ======
-$(function () {
-    let tempBar = $('#temp-bar');
-    let logo = $('#logo');
-    let logoBackground = $('.hexagon');
-    let logoAfter = $('#logo-after');
-    let logoAfterBackground = $('.hexagon-after');
-
-    $(window).scroll(function () {
-        let scroll = $(window).scrollTop();
-        let os = tempBar.offset().top;
-        let ht = tempBar.height();
-        if (scroll > os + ht) {
-            logo.removeClass('d-md-block').addClass('d-md-none');
-            logoBackground.removeClass('d-md-block').addClass('d-md-none');
-            logoAfter.removeClass('d-md-none').addClass('d-md-block');
-            logoAfterBackground.removeClass('d-md-none').addClass('d-md-block');
-        }
-    });
-    $(window).scroll(function () {
-        let scroll = $(window).scrollTop();
-        if (scroll < 20) {
-            logo.removeClass('d-md-none').addClass('d-md-block');
-            logoBackground.removeClass('d-md-none').addClass('d-md-block');
-            logoAfter.removeClass('d-md-block').addClass('d-md-none');
-            logoAfterBackground.removeClass('d-md-block').addClass('d-md-none');
-        }
-    });
-});
-
-// ===== Scroll to Top ====
-$(window).scroll(function () {
-    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
-        $('#return-to-top').fadeIn(200);    // Fade in the arrow
-    } else {
-        $('#return-to-top').fadeOut(200);   // Else fade out the arrow
-    }
-});
-$('#return-to-top').click(function () {      // When arrow is clicked
-    $('body,html').animate({
-        scrollTop: 0                       // Scroll to top of body
-    }, 500);
-});
-
-
-// ===== hiding logo-after when navbar toggler is pressed ======
-$(function () {
-    let logoAfter = $('#logo-after');
-    let logoAfterBackground = $('.hexagon-after');
-    let clicked = false;
-    $('.navbar-toggler').on('click', () => {
-        if (!clicked) {
-            clicked = true;
-            logoAfter.removeClass('d-block').addClass('d-none');
-            logoAfterBackground.removeClass('d-block').addClass('d-none');
-        } else {
-            setTimeout(function () {
-                clicked = false;
-                logoAfter.removeClass('d-none').addClass('d-block');
-                logoAfterBackground.removeClass('d-none').addClass('d-block');
-            }, 500);
-
-        }
-    })
-});
-
 // ==== removing blur and hiding size options =====
 function setBackground(circle) {
     let sizeOptions = circle.closest('.sizeOptions');
@@ -80,45 +14,18 @@ function showSizeOptions(button) {
 }
 
 // ==== AJAX calls =====
+let topWearMap = {
+    '0': 'Round-Neck',
+    1: 'V-Neck',
+    2: 'Hoodies'
+};
+
 let designHolder = $('#designHolder');
 let searchTitle = $('#searchTitle');
-designHolder.empty();
 let topWear = 0;
 let sex = 'male';
-let designCatagory = 1;
+let designCatagory = 0;
 getDesigns(topWear, sex, designCatagory);
-
-function objCountUpdate(newCount) {
-    let Holder = $('#numItems');
-    Holder.empty();
-    Holder.append(newCount + ' Items')
-}
-
-function searchTitleUpdate(topWear, sex, designCatagory) {
-    let newTitle = '';
-    if (topWear == 0) {
-        newTitle += 'Tshirts'
-    } else if (topWear == 1) {
-        newTitle += 'Vnecks'
-    } else if (topWear == 2) {
-        newTitle += 'Hoodies'
-    } else {
-        newTitle += 'Everything'
-    }
-
-    newTitle += ' For ';
-
-    if (sex == 'male') {
-        newTitle += 'Men'
-    } else if (sex == 'female') {
-        newTitle += 'Women'
-    } else {
-        newTitle += 'Both'
-    }
-
-    searchTitle.empty();
-    searchTitle.append(newTitle);
-}
 
 $('#catagoryRadio input').on('change', function () {
     topWear = $('input[name=categories]:checked', '#catagoryRadio').val();
@@ -142,15 +49,46 @@ $('#themeRadio input').on('change', function () {
 function getDesigns(topWear, sex, designCatagory) {
     searchTitleUpdate(topWear, sex, designCatagory);
     $.ajax({
-        url: 'http://localhost:5252/designs/custom?topWear=' + topWear + '&sex=' + sex + '&designCatagory=' + designCatagory,
+        url: 'http://localhost:5252/designs/search',
         method: 'GET',
+        data: {
+            topWear,
+            sex,
+            designCatagory
+        },
         success: renderShirts
     });
 }
 
+function searchTitleUpdate(topWear, sex, designCatagory) {
+    let newTitle = '';
+    if (topWear === 0) {
+        newTitle += 'Tshirts'
+    } else if (topWear === 1) {
+        newTitle += 'Vnecks'
+    } else if (topWear === 2) {
+        newTitle += 'Hoodies'
+    } else {
+        newTitle += 'Everything'
+    }
+
+    newTitle += ' For ';
+
+    if (sex === 'male') {
+        newTitle += 'Men'
+    } else if (sex === 'female') {
+        newTitle += 'Women'
+    } else {
+        newTitle += 'Both'
+    }
+
+    searchTitle.empty();
+    searchTitle.append(newTitle);
+}
 
 function renderShirts(data) {
-    objCountUpdate(data.count);
+    console.log(data);
+    updateSearchResultCounter(data.count);
     data.rows.forEach(design => {
         let teaserBlock = $(`<div class="teaser-block">
         <img class="teaser-img" src="../img/tshirt_front.png" alt="">
@@ -232,4 +170,10 @@ function renderShirts(data) {
         card.append(cardBody);
         designHolder.append(card);
     });
+}
+
+function updateSearchResultCounter(newCount) {
+    let Holder = $('#numItems');
+    Holder.empty();
+    Holder.append(newCount + ' Items')
 }

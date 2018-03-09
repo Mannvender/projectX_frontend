@@ -52,7 +52,6 @@ console.log(imageDetails);
     designAttributes.texts = texts;
     let designAttributesInJson = JSON.stringify(designAttributes);
     $('#price_inp').val(cost);
-    $('#catagory_inp').val($('#designType').val());
     $('#color_inp').val(color);
     $('#json_inp').val(designAttributesInJson);
 
