@@ -1,9 +1,7 @@
 // TODO: Send userID
 let designArea = $('#design_area_front');
-let dAreaWidth = designArea.css('width');
-dAreaWidth = parseInt(dAreaWidth);
-let dAreaHt = designArea.css('height');
-dAreaHt = parseInt(dAreaHt);
+let designAreaWidth = parseInt(designArea.css('width'));
+let designAreaHeight = parseInt(designArea.css('height'));
 let designAttributes = {};
 let topWear = 0;
 let images = [];
@@ -17,31 +15,35 @@ function sendDesign() {
         let jqElement = $(element);
         let imageDetails = {};
         // lets send height, width, top, left in %
-        let height = jqElement.css('height');
-        let width = jqElement.css('width');
-        let top = jqElement.css('top');
-        let left = jqElement.css('left');
-        imageDetails.height = (parseInt(height) / dAreaHt) * 100;
-        imageDetails.width = (parseInt(width) / dAreaWidth) * 100;
-        imageDetails.top = (parseInt(top) / dAreaHt) * 100;
-        imageDetails.left = (parseInt(left) / dAreaWidth) * 100;
-        imageDetails.isFront = jqElement.parent().attr('id') === 'design_area_front';
+        let heightInPx = parseInt(jqElement.css('height'));
+        let widthInPx = parseInt(jqElement.css('width'));
+        let topInPx = parseInt(jqElement.css('top'));
+        let leftInPx = parseInt(jqElement.css('left'));
 
+        imageDetails.height = (heightInPx / designAreaHeight) * 100;
+        imageDetails.width = (widthInPx / designAreaWidth) * 100;
+        imageDetails.top = (topInPx / designAreaHeight) * 100;
+        imageDetails.left = (leftInPx / designAreaWidth) * 100;
+        imageDetails.isFront = jqElement.parent().attr('id') === 'design_area_front';
+console.log(imageDetails);
         images.push(imageDetails);
     });
 
     $('.text').each((index, element) => {
         let jqElement = $(element);
         let textDetails = {};
+        let topInPx = parseInt(jqElement.css('top'));
+        let leftInPx = parseInt(jqElement.css('left'));
 
         textDetails.content = jqElement.text().replace(/\W/g, '');
         textDetails.fontSize = jqElement.css('font-size');
         // textDetails.fontFamily = jqElement.css('font-family');
         textDetails.color = jqElement.css('color');
-        textDetails.top = jqElement.css('top');
-        textDetails.left = jqElement.css('left');
+        textDetails.top = (topInPx / designAreaHeight) * 100;
+        textDetails.left = (leftInPx / designAreaWidth) * 100;
         textDetails.isFront = jqElement.parent().attr('id') === 'design_area_front';
 
+        console.log(textDetails);
         texts.push(textDetails);
     });
 
