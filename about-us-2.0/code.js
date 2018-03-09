@@ -54,7 +54,7 @@ $('.flaunting-container').each((index, element) => {
         .setTween(ourTimeline)
         // .addIndicators()
         .addTo(controller);
-})
+});
 
 $('.testimonial').slick({
     dots: true,
