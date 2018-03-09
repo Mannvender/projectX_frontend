@@ -25,7 +25,6 @@ function sendDesign() {
         imageDetails.top = (topInPx / designAreaHeight) * 100;
         imageDetails.left = (leftInPx / designAreaWidth) * 100;
         imageDetails.isFront = jqElement.parent().attr('id') === 'design_area_front';
-console.log(imageDetails);
         images.push(imageDetails);
     });
 
@@ -35,15 +34,16 @@ console.log(imageDetails);
         let topInPx = parseInt(jqElement.css('top'));
         let leftInPx = parseInt(jqElement.css('left'));
 
+        let fontSize = jqElement.css('font-size');
         textDetails.content = jqElement.text().replace(/\W/g, '');
-        textDetails.fontSize = jqElement.css('font-size');
+        // we need relative or %value of font to make design cards responsive
+        textDetails.fontSize = parseInt(fontSize);
         // textDetails.fontFamily = jqElement.css('font-family');
         textDetails.color = jqElement.css('color');
         textDetails.top = (topInPx / designAreaHeight) * 100;
         textDetails.left = (leftInPx / designAreaWidth) * 100;
         textDetails.isFront = jqElement.parent().attr('id') === 'design_area_front';
 
-        console.log(textDetails);
         texts.push(textDetails);
     });
 
