@@ -27,8 +27,6 @@ function setBackground(circle, designId, size) {
         localStorage.setItem('Cart', JSON.stringify(Cart));
         console.log('**********here are updated entries');
         console.log(array);
-
-
     }
 
     let sizeOptions = circle.closest('.sizeOptions');
@@ -118,7 +116,6 @@ function searchTitleUpdate(topWear, sex, designCatagory) {
 }
 
 function renderShirts(data) {
-    console.log(data);
     updateSearchResultCounter(data.count);
     data.rows.forEach(design => {
 
