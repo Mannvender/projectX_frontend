@@ -1,5 +1,36 @@
 // ==== removing blur and hiding size options =====
-function setBackground(circle) {
+function setBackground(circle, designId, size) {
+    let retrievedObject = localStorage.getItem('Cart');
+    if (retrievedObject === null) {
+        // Put the array into storage
+        let array = [];
+        let obj = {
+            'designId': designId,
+            'size': size
+        };
+        array.push(obj);
+        let Cart = {
+            designArray: array
+        };
+        localStorage.setItem('Cart', JSON.stringify(Cart));
+        console.log('first entry in cart');
+
+    } else {
+        // Retrieve the array from storage
+        let array = JSON.parse(retrievedObject).designArray;
+        let obj = {
+            'designId': designId,
+            'size': size
+        };
+        array.push(obj);
+        let Cart = {'designArray': array};
+        localStorage.setItem('Cart', JSON.stringify(Cart));
+        console.log('**********here are updated entries');
+        console.log(array);
+
+
+    }
+
     let sizeOptions = circle.closest('.sizeOptions');
     sizeOptions.siblings().css({'-webkit-filter-': 'blur(0px)', 'filter': 'blur(0px)'});
     sizeOptions.removeClass("d-inline").addClass("d-none");
@@ -62,11 +93,11 @@ function getDesigns(topWear, sex, designCatagory) {
 
 function searchTitleUpdate(topWear, sex, designCatagory) {
     let newTitle = '';
-    if (topWear === 0) {
+    if (topWear == 0) {
         newTitle += 'Tshirts'
-    } else if (topWear === 1) {
+    } else if (topWear == 1) {
         newTitle += 'Vnecks'
-    } else if (topWear === 2) {
+    } else if (topWear == 2) {
         newTitle += 'Hoodies'
     } else {
         newTitle += 'Everything'
@@ -102,16 +133,16 @@ function renderShirts(data) {
                             select a size
                         </div>
                         <div class="row">
-                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this),${design.designId}, 'S')">
                                 <h6 class="circleText">S</h6>
                             </div>
-                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this),${design.designId}, 'M')">
                                 <h6 class="circleText">M</h6>
                             </div>
-                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this),${design.designId}, 'L')">
                                 <h6 class="circleText">L</h6>
                             </div>
-                            <div class="circleBase type1 m-1" onclick="setBackground($(this))">
+                            <div class="circleBase type1 m-1" onclick="setBackground($(this),${design.designId}, 'XL')">
                                 <h6 class="circleText">XL</h6>
                             </div>
                         </div>
@@ -162,7 +193,7 @@ function renderShirts(data) {
         });
         designAttributes.texts.forEach(element => {
             // temp solution
-            let fontSize = element.fontSize/2;
+            let fontSize = element.fontSize / 2;
             if (element.isFront) {
                 let text = $(`<p style="font-size: ${fontSize}px; color: ${element.color}">${element.content}</p>`);
                 text.css({
