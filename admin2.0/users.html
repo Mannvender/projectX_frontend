@@ -14,17 +14,18 @@
 </head>
 <body>
 <div class="container projects my-3">
-    <div class="projects-inner">
+    <div class="projects-inner" id="userHolder">
         <header class="projects-header">
             <div class="title">User List</div>
-            <div class="count">| 3200 Users</div>
+            <div class="count" id="userCount">| 3200 Users</div>
             <span class="glyphicon glyphicon-download-alt"></span>
         </header>
         <table class="projects-table table">
             <thead>
             <tr>
                 <th>UserId</th>
-                <th>Points</th>
+                <th>CurrentPoints</th>
+                <th>TotalPoints</th>
                 <th>Status</th>
                 <th>Actions</th>
             </tr>
@@ -32,6 +33,9 @@
             <tr>
                 <td>
                     <p>user1</p>
+                </td>
+                <td>
+                    <p>500</p>
                 </td>
                 <td>
                     <p>500</p>
@@ -206,5 +210,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+<script src="code.js"></script>
 </body>
 </html>
