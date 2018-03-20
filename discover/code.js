@@ -1,53 +1,31 @@
-// ==== removing blur and hiding size options =====
-function setBackground(circle, designId, size) {
-    let retrievedObject = localStorage.getItem('Cart');
-    if (retrievedObject === null) {
-        // Put the array into storage
-        let array = [];
-        let obj = {
-            'designId': designId,
-            'size': size
-        };
-        array.push(obj);
-        let Cart = {
-            designArray: array
-        };
-        localStorage.setItem('Cart', JSON.stringify(Cart));
-        console.log('first entry in cart');
-
-    } else {
-        // Retrieve the array from storage
-        let array = JSON.parse(retrievedObject).designArray;
-        let obj = {
-            'designId': designId,
-            'size': size
-        };
-        array.push(obj);
-        let Cart = {'designArray': array};
-        localStorage.setItem('Cart', JSON.stringify(Cart));
-        console.log('**********here are updated entries');
-        console.log(array);
+function addToCart(designId) {
+    let itemsInCart = localStorage.getItem('cart');
+    itemsInCart = JSON.parse(itemsInCart);
+    if (!itemsInCart) {
+        itemsInCart = []
     }
 
-    let sizeOptions = circle.closest('.sizeOptions');
-    sizeOptions.siblings().css({'-webkit-filter-': 'blur(0px)', 'filter': 'blur(0px)'});
-    sizeOptions.removeClass("d-inline").addClass("d-none");
+    let isDuplicate = false;
+    itemsInCart.forEach(item => {
+        if (item === designId) {
+            isDuplicate = true;
+        }
+    });
+    if (!isDuplicate) {
+        itemsInCart.push(designId);
+        localStorage.setItem('cart', JSON.stringify(itemsInCart));
+        alert('Item added!');
+    }
 }
 
 // ==== showing size options on clicking add-TO-cart button ====
 function showSizeOptions(button) {
     let img = button.parent().parent().siblings().first();
     let sizeOptions = img.nextAll().eq(0);
-    // img.css({'-webkit-filter-': 'blur(5px)', 'filter': 'blur(5px)'});
     sizeOptions.removeClass("d-none").addClass("d-inline");
 }
 
 // ==== AJAX calls =====
-let topWearMap = {
-    '0': 'Round-Neck',
-    1: 'V-Neck',
-    2: 'Hoodies'
-};
 
 let designHolder = $('#designHolder');
 let searchTitle = $('#searchTitle');
@@ -130,16 +108,16 @@ function renderShirts(data) {
                             select a size
                         </div>
                         <div class="row">
-                            <div class="circleBase type1 m-1" onclick="setBackground($(this),${design.designId}, 'S')">
+                            <div class="circleBase type1 m-1" onclick="addToCart($(this),${design.designId}, 'S')">
                                 <h6 class="circleText">S</h6>
                             </div>
-                            <div class="circleBase type1 m-1" onclick="setBackground($(this),${design.designId}, 'M')">
+                            <div class="circleBase type1 m-1" onclick="addToCart($(this),${design.designId}, 'M')">
                                 <h6 class="circleText">M</h6>
                             </div>
-                            <div class="circleBase type1 m-1" onclick="setBackground($(this),${design.designId}, 'L')">
+                            <div class="circleBase type1 m-1" onclick="addToCart($(this),${design.designId}, 'L')">
                                 <h6 class="circleText">L</h6>
                             </div>
-                            <div class="circleBase type1 m-1" onclick="setBackground($(this),${design.designId}, 'XL')">
+                            <div class="circleBase type1 m-1" onclick="addToCart($(this),${design.designId}, 'XL')">
                                 <h6 class="circleText">XL</h6>
                             </div>
                         </div>
@@ -153,7 +131,7 @@ function renderShirts(data) {
         let Price = $(`<p class="">Rs. ${design.designPrice}</p>`);
 
         let AddToBagBtn = $(`<div class="text-center row-50px over">
-                            <div class="btn btn-dark" onclick="showSizeOptions($(this))">Add to Bag</div>
+                            <div class="btn btn-dark" onclick="addToCart(${design.designId})">Add to Bag</div>
                             <p class="">Sizes: S, M, L, XL</p>
                         </div>`);
 
@@ -164,7 +142,6 @@ function renderShirts(data) {
         designAttributes.images.forEach(element => {
             if (element.isFront) {
                 let image = $(`<img src="http://localhost:5252/images/${element.name}">`);
-                console.log(element.height);
                 image.css({
                     'height': element.height + '%',
                     'width': element.width + '%',

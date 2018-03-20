@@ -19,43 +19,31 @@ let itemHolder = $('#itemHolder');
 let cartPriceHolder = $('#cartPrice');
 
 getCart();
-// localStorage.clear();
-function removeItem(btn, priceToDcr, size) {
-    let retObj = localStorage.getItem('Cart');
-    if (retObj === null) {
-        // do nothing
-    } else {
-        // Retrieve the array from storage
 
-        let array = JSON.parse(retObj).designArray;
-        let objToFind = {
-            designId: priceToDcr,
-            size: size
-        };
-        let index = array.indexOf(objToFind);
-        array.splice(index, 1);
-        let Cart = {'designArray': array};
-        localStorage.setItem('Cart', JSON.stringify(Cart));
-    }
-    setItemsCount(-1);
-    UpdateCartPrice(priceToDcr, false);
-    btn.closest('.items').remove()
+function removeItem(designId) {
+    let itemsInCart = localStorage.getItem('cart');
+    itemsInCart = JSON.parse(itemsInCart);
+
+    let index = itemsInCart.indexOf(designId);
+    itemsInCart.splice(index, 1);
+
+    localStorage.setItem('cart', JSON.stringify(itemsInCart))
+
+    getCart();
 }
 
 function getCart() {
     itemHolder.empty();
-    let retrievedObject = localStorage.getItem('Cart');
-    if (retrievedObject === null) {
-        // do nothing
-    } else {
-        // Retrieve the array from storage
+    let itemsInCart = localStorage.getItem('cart');
 
-        let array = JSON.parse(retrievedObject).designArray;
-        setItemsCount(array.length);
-        array.forEach(function (item) {
-            getDesigns(item.designId, item.size);
-        });
+    if (!itemsInCart) {
+        return;
     }
+
+    itemsInCart = JSON.parse(itemsInCart);
+    setItemsCount(itemsInCart.length);
+    itemsInCart.forEach(item => getDesigns(item));
+
 }
 
 function UpdateCartPrice(num, toIncr) {
@@ -71,11 +59,14 @@ function UpdateCartPrice(num, toIncr) {
     cartPriceHolder.append(newTotal)
 }
 
-function getDesigns(designId, size) {
+function getDesigns(designId) {
     $.ajax({
-        url: 'http://localhost:5252/designs/designId?designId=' + designId,
+        url: 'http://localhost:5252/designs/designId',
+        data: {
+          designId
+        },
         method: 'GET',
-        success: data => renderShirts(data, size),
+        success: renderShirts,
     });
 }
 
@@ -91,7 +82,7 @@ function setItemsCount(newCount) {
     }
 }
 
-function renderShirts(data, size) {
+function renderShirts(data) {
     let designArea = $('<div class="design-area away"></div>');
     let designAreaBack = $('<div class="design-area-back over"></div>');
     let cardImg = $(`<img class="card-img m-0 p-0 away" src="../img/tshirt_front.png" style="background-color: ${data.color}">`);
@@ -139,11 +130,10 @@ function renderShirts(data, size) {
                         </div>
                     </div>
                     <div class="row border_top_light">
-                        <button class="btn btn-outline-danger ml-3 my-2 remove-btn" onclick="removeItem($(this),${data.designPrice},${size})">remove
+                        <button class="btn btn-outline-danger ml-3 my-2 remove-btn" onclick="removeItem(${data.designId})">remove
                         </button>
                     </div>
                 </div>`);
-    console.log(size);
     let designAttributes = JSON.parse(data.designAttributes);
 
     designAttributes.images.forEach(element => {
