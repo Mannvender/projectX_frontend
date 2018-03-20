@@ -101,7 +101,7 @@ function applyAction(userID) {
     let actionBox = $('#' + userID);
     let action = actionBox.val();
     if (action == 'View') {
-        window.location = '../profile-viewer/index.html';
+        window.location = '../profile-viewer/index.html?userId=' + userID;
     } else if (action == 'Lock') {
         $.ajax({
             url: 'http://localhost:5252/users/' + userID,
