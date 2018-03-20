@@ -19,10 +19,26 @@ let itemHolder = $('#itemHolder');
 let cartPriceHolder = $('#cartPrice');
 
 getCart();
+// localStorage.clear();
+function removeItem(btn, priceToDcr, size) {
+    let retObj = localStorage.getItem('Cart');
+    if (retObj === null) {
+        // do nothing
+    } else {
+        // Retrieve the array from storage
 
-function removeItem(btn, priceToDecrease) {
+        let array = JSON.parse(retObj).designArray;
+        let objToFind = {
+            designId: priceToDcr,
+            size: size
+        };
+        let index = array.indexOf(objToFind);
+        array.splice(index, 1);
+        let Cart = {'designArray': array};
+        localStorage.setItem('Cart', JSON.stringify(Cart));
+    }
     setItemsCount(-1);
-    UpdateCartPrice(priceToDecrease, false);
+    UpdateCartPrice(priceToDcr, false);
     btn.closest('.items').remove()
 }
 
@@ -37,7 +53,7 @@ function getCart() {
         let array = JSON.parse(retrievedObject).designArray;
         setItemsCount(array.length);
         array.forEach(function (item) {
-            getDesigns(item.designId);
+            getDesigns(item.designId, item.size);
         });
     }
 }
@@ -55,11 +71,11 @@ function UpdateCartPrice(num, toIncr) {
     cartPriceHolder.append(newTotal)
 }
 
-function getDesigns(designId) {
+function getDesigns(designId, size) {
     $.ajax({
         url: 'http://localhost:5252/designs/designId?designId=' + designId,
         method: 'GET',
-        success: renderShirts,
+        success: data => renderShirts(data, size),
     });
 }
 
@@ -75,7 +91,7 @@ function setItemsCount(newCount) {
     }
 }
 
-function renderShirts(data) {
+function renderShirts(data, size) {
     let designArea = $('<div class="design-area away"></div>');
     let designAreaBack = $('<div class="design-area-back over"></div>');
     let cardImg = $(`<img class="card-img m-0 p-0 away" src="../img/tshirt_front.png" style="background-color: ${data.color}">`);
@@ -123,11 +139,11 @@ function renderShirts(data) {
                         </div>
                     </div>
                     <div class="row border_top_light">
-                        <button class="btn btn-outline-danger ml-3 my-2 remove-btn" onclick="removeItem($(this),${data.designPrice})">remove
+                        <button class="btn btn-outline-danger ml-3 my-2 remove-btn" onclick="removeItem($(this),${data.designPrice},${size})">remove
                         </button>
                     </div>
                 </div>`);
-
+    console.log(size);
     let designAttributes = JSON.parse(data.designAttributes);
 
     designAttributes.images.forEach(element => {
