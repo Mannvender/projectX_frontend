@@ -10,6 +10,8 @@ let fontSizeInput = $('#font_size_input');
 let frontInputContainer = $('#front_input_container');
 let rareInputContainer = $('#rare_input_container');
 
+let dimentionContainer = $('#dimension_container')
+
 let costDiv = document.getElementById('cost_div');
 
 let cost = 299;
@@ -59,10 +61,9 @@ function setDraggable(jqueryElement) {
 
 function setResizable(jqueryElement) {
     jqueryElement.resizable({
-        // animate: true,
-        // animateEasing: "easeOutBounce",
-        // ghost: true,
-        containment: 'parent'
+        containment: 'parent',
+        resize: showDimensions,
+        stop: clearDimensions
     });
 }
 
@@ -104,6 +105,17 @@ function alignImageInsideDesignArea(event) {
     }
 
     imageToBeMoved.animate({left: reAdjustedLeft, top: reAdjustedTop});
+}
+
+function showDimensions(event) {
+    let image = $(event.target);
+    let width = parseInt(image.css('width'));
+    let height = parseInt(image.css('height'));
+    dimentionContainer.html(width + ' X ' + height);
+}
+
+function clearDimensions() {
+    dimentionContainer.html('');
 }
 
 function addText(isFront) {
