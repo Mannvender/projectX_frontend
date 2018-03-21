@@ -44,6 +44,8 @@ function removeItem(designId) {
 function getCart() {
     itemHolder.empty();
     currentTotal = 0;
+    updateCartPrice(0);
+
     let itemsInCart = localStorage.getItem('cart');
 
     if (!itemsInCart) {
@@ -56,7 +58,7 @@ function getCart() {
 
 }
 
-function incrementCartPrice(incrementalAmount) {
+function updateCartPrice(incrementalAmount) {
     currentTotal += incrementalAmount;
     let tax = (taxInPercentage / 100) * currentTotal;
     let grandTotal = currentTotal + tax + deliveryCharge;
@@ -107,7 +109,7 @@ function renderShirts(data) {
     let imageWrapper = $(`<div class="col-12 col-md-3 p-0"></div>`);
     let imageInnerWrap = $(`<div class="card"> </div>`);
     let imageInnerLink = $(`<a href="." class="link"></a>`);
-    incrementCartPrice(data.designPrice);
+    updateCartPrice(data.designPrice);
     let otherDetailsWrapper = $(`<div class="col-12 col-md-9">
                     <div class="row mt-2">
                         <div class="col-8">
