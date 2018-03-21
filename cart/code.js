@@ -18,6 +18,15 @@ let itemCountHolder = $('#numItems');
 let itemHolder = $('#itemHolder');
 let cartPriceHolder = $('#cartPrice');
 
+let currentTotal = 0;
+let taxInPercentage = 18;
+let deliveryCharge = 30;
+
+let subtotalOutput = $('#sub_total');
+let taxOutput = $('#tax');
+let deliveryOutput = $('#delivery');
+let grandTotalOutput = $('#grand_total');
+
 getCart();
 
 function removeItem(designId) {
@@ -34,6 +43,9 @@ function removeItem(designId) {
 
 function getCart() {
     itemHolder.empty();
+    currentTotal = 0;
+    updateCartPrice(0);
+
     let itemsInCart = localStorage.getItem('cart');
 
     if (!itemsInCart) {
@@ -46,17 +58,22 @@ function getCart() {
 
 }
 
-function UpdateCartPrice(num, toIncr) {
-    let newTotal;
-    if (toIncr) {
-        let currentTotal = parseInt(cartPriceHolder.text());
-        newTotal = currentTotal + num;
-    } else {
-        let currentTotal = parseInt(cartPriceHolder.text());
-        newTotal = currentTotal - num;
-    }
+function updateCartPrice(incrementalAmount) {
+    currentTotal += incrementalAmount;
+    let tax = (taxInPercentage / 100) * currentTotal;
+    let grandTotal = currentTotal + tax + deliveryCharge;
+
     cartPriceHolder.empty();
-    cartPriceHolder.append(newTotal)
+    subtotalOutput.empty();
+    taxOutput.empty();
+    deliveryOutput.empty();
+    grandTotalOutput.empty();
+
+    cartPriceHolder.html(currentTotal);
+    subtotalOutput.html('₹ ' + currentTotal);
+    taxOutput.html('₹ ' + tax);
+    deliveryOutput.html('₹ ' + deliveryCharge);
+    grandTotalOutput.html('₹ ' + grandTotal);
 }
 
 function getDesigns(designId) {
@@ -92,7 +109,7 @@ function renderShirts(data) {
     let imageWrapper = $(`<div class="col-12 col-md-3 p-0"></div>`);
     let imageInnerWrap = $(`<div class="card"> </div>`);
     let imageInnerLink = $(`<a href="." class="link"></a>`);
-    UpdateCartPrice(data.designPrice, true);
+    updateCartPrice(data.designPrice);
     let otherDetailsWrapper = $(`<div class="col-12 col-md-9">
                     <div class="row mt-2">
                         <div class="col-8">

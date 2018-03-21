@@ -14,7 +14,7 @@ function addToCart(designId) {
     if (!isDuplicate) {
         itemsInCart.push(designId);
         localStorage.setItem('cart', JSON.stringify(itemsInCart));
-        alert('Item added!');
+        shakeThatCart();
     }
 }
 
