@@ -30,23 +30,24 @@ body {
 
 .design-area {
     width: 41.47%;
-    height: 44.66%;
+    height: 55.55%;
     position: absolute;
     top: 17.44%;
     left: 29%;
 }
 .design-area-back {
     width: 41.47%;
-    height: 44.66%;
+    height: 55.55%;
     position: absolute;
     top: 17.44%;
     left: 29%;
 }
 
 .teaser-block {
+    padding: 0px;
     display: inline-block;
     box-shadow: 15px 15px 10px #bbb;
-    margin: 20px;
+    /*margin: 20px;*/
     transition: 0.3s;
     cursor: pointer;
     position: relative;
