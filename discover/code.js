@@ -103,26 +103,6 @@ function renderShirts(data) {
         let link = $(`<a href="." class="productImages"></a>`);
         let cardImg = $(`<img class="card-img m-0 p-0 teaser-img away" src="../img/tshirt_front.png" style="background-color: ${design.color}">`);
         let cardImgBack = $(`<img class="card-img m-0 p-0 teaser-img over" src="../img/tshirt_back.png" style="background-color: ${design.color}">`);
-        let sizeOptions = $(`<div class="container d-none sizeOptions">
-                        <div class="row">
-                            select a size
-                        </div>
-                        <div class="row">
-                            <div class="circleBase type1 m-1" onclick="addToCart($(this),${design.designId}, 'S')">
-                                <h6 class="circleText">S</h6>
-                            </div>
-                            <div class="circleBase type1 m-1" onclick="addToCart($(this),${design.designId}, 'M')">
-                                <h6 class="circleText">M</h6>
-                            </div>
-                            <div class="circleBase type1 m-1" onclick="addToCart($(this),${design.designId}, 'L')">
-                                <h6 class="circleText">L</h6>
-                            </div>
-                            <div class="circleBase type1 m-1" onclick="addToCart($(this),${design.designId}, 'XL')">
-                                <h6 class="circleText">XL</h6>
-                            </div>
-                        </div>
-
-                    </div>`);
         let cardBody = $(`<div class="card-body text-center text-secondary m-1 p-0">
                         
                     </div>`);
@@ -191,7 +171,6 @@ function renderShirts(data) {
         link.append(designArea);
         link.append(designAreaBack);
         card.append(link);
-        card.append(sizeOptions);
         NameNPriceHolder.append(Name);
         NameNPriceHolder.append(Price);
         cardBody.append(NameNPriceHolder);
