@@ -5,11 +5,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="bootstrap.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../navbar/navbar.css">
+    <link rel="stylesheet" href="../navbar/scrollTop.css">
     <title>Document</title>
 </head>
 <body>
@@ -22,8 +23,8 @@
     <div class="hexagon d-none d-md-block"><span></span></div>
     <img class="d-none d-md-block" id="logo" src="img/k_final.png">
 </div>
-<nav class="navbar navbar-dark navbar-expand-lg bg-dark sticky-top">
-    <img class="d-block d-md-none" id="logo-after" src="img/k_final.png">
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark sticky-top mb-5">
+    <img class="d-block d-md-none" id="logo-after" src="../img/k_final.png">
     <div class="hexagon-after d-block d-md-none"><span></span></div>
     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,29 +42,33 @@
                     <div class="row">
                         <div class="col-6">
                             <h4 class="dropdown-header ">For Men</h4>
-                            <a class="dropdown-item " href="#">t-shirts</a>
-                            <a class="dropdown-item " href="#">shirts</a>
-                            <a class="dropdown-item " href="#">hoodies</a>
+                            <a class="dropdown-item " href="../discover/index.html?topWear=0&sex=male&designCatagory=2">t-shirts</a>
+                            <a class="dropdown-item " href="../discover/index.html?topWear=1&sex=male&designCatagory=1">v-necks</a>
+                            <a class="dropdown-item " href="../discover/index.html?topWear=2&sex=male&designCatagory=1">hoodies</a>
                         </div>
                         <div class="col-6">
                             <h4 class="dropdown-header ">For Women</h4>
-                            <a class="dropdown-item " href="#">t-shirts</a>
-                            <a class="dropdown-item " href="#">shirts</a>
-                            <a class="dropdown-item " href="#">hoodies</a>
+                            <a class="dropdown-item "
+                               href="../discover/index.html?topWear=0&sex=female&designCatagory=1">t-shirts</a>
+                            <a class="dropdown-item "
+                               href="../discover/index.html?topWear=1&sex=female&designCatagory=1">v-necks</a>
+                            <a class="dropdown-item "
+                               href="../discover/index.html?topWear=2&sex=female&designCatagory=1">hoodies</a>
                         </div>
                     </div>
                     <div class="dropdown-divider "></div>
-                    <a class="dropdown-item " href="#">Show for all</a>
+                    <a class="dropdown-item " href="../discover/index.html?topWear=0&sex=uni&designCatagory=1">Show for
+                        all</a>
                 </div>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="../home/index.html">Home</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="#">Design</a>
+                <a class="nav-link" href="../tshirt-costomize/index.html">Design</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">About Us</a>
+                <a class="nav-link" href="../about-us-2.0/index.html">About Us</a>
             </li>
 
             <li class="nav-item">
@@ -75,15 +80,17 @@
         </form>
         <ul class="navbar-nav text-right">
             <li class="nav-item ">
-                <a class="nav-link" href="#"><i class="fas fa-user fa-lg"></i></a>
+                <!-- below userId will come from cookies-->
+                <a class="nav-link" href="../profile-viewer/index.html?userId=2"><i class="fas fa-user fa-lg"></i></a>
             </li>
             <li id="cart_icon_holder" class="nav-item ">
-                <a class="nav-link" href="#"><i class="fas fa-shopping-cart fa-lg"></i></a>
+                <a class="nav-link" href="../cart/index.html"><i class="fas fa-shopping-cart fa-lg"></i></a>
             </li>
         </ul>
     </div>
 </nav>
 <a class="" href="javascript:" id="return-to-top"><i class="fas fa-arrow-up"></i></a>
+
 <div class="container-fluid row" id="filters">
     <div class="col-12 col-md-3 mt-5 ">
         <div class="row">
@@ -358,5 +365,7 @@
 <script src="../navbar/scrollTop.js"></script>
 <script src="cart-animation.js"></script>
 <script src="code.js"></script>
+<script src="../navbar/scrollTop.js"></script>
+<script src="../navbar/navbar.js"></script>
 </body>
 </html>

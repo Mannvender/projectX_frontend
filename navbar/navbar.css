@@ -1,5 +1,8 @@
-
 /*navbar*******************************************************/
+#header {
+    min-height: 30px;
+    background-color: #fcfcfc;
+}
 
 #temp-bar {
     min-height: 50px;
@@ -180,6 +183,10 @@
 
 .pagination {
     margin: 0px;
+}
+
+.dropdown-menu {
+    min-width: 400px
 }
 
 /*search box***********************************/
