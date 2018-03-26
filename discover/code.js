@@ -1,3 +1,9 @@
+// vars will pick up userId from query
+let vars = {};
+let parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+    vars[key] = value;
+});
+
 function addToCart(designId) {
     let itemsInCart = localStorage.getItem('cart');
     itemsInCart = JSON.parse(itemsInCart);
@@ -18,13 +24,6 @@ function addToCart(designId) {
     }
 }
 
-// ==== showing size options on clicking add-TO-cart button ====
-function showSizeOptions(button) {
-    let img = button.parent().parent().siblings().first();
-    let sizeOptions = img.nextAll().eq(0);
-    sizeOptions.removeClass("d-none").addClass("d-inline");
-}
-
 // ==== AJAX calls =====
 
 let designHolder = $('#designHolder');
@@ -32,6 +31,12 @@ let searchTitle = $('#searchTitle');
 let topWear = 0;
 let sex = 'male';
 let designCatagory = 0;
+if (vars.topWear && vars.sex && vars.designCatagory) {
+    topWear = vars.topWear;
+    sex = vars.sex;
+    designCatagory = vars.designCatagory;
+    updateRadio();
+}
 getDesigns(topWear, sex, designCatagory);
 
 $('#catagoryRadio input').on('change', function () {
@@ -52,6 +57,19 @@ $('#themeRadio input').on('change', function () {
     getDesigns(topWear, sex, designCatagory);
 });
 
+function updateRadio() {
+    $('input:radio[name=categories]')[topWear].checked = true;
+
+    if (sex === 'male') {
+        $('input:radio[name=gender]')[0].checked = true;
+    } else if (sex === 'female') {
+        $('input:radio[name=gender]')[1].checked = true;
+    } else {
+        $('input:radio[name=gender]')[2].checked = true;
+    }
+
+    $('input:radio[name=themes]')[designCatagory - 1].checked = true;
+}
 
 function getDesigns(topWear, sex, designCatagory) {
     searchTitleUpdate(topWear, sex, designCatagory);
